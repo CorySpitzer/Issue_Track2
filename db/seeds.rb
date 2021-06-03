@@ -14,17 +14,52 @@ Issue.destroy_all
 Comment.destroy_all
 User.destroy_all
 
+# We can run 'rails db:reset' (which runs 'rails db:seed' among other things)
+# and it will work but running just 
+# 'rails db:seed' will result in an error:
+# ActiveRecord::InvalidForeignKey: SQLite3::ConstraintException: FOREIGN KEY constraint failed
 # we need a variable here, project0, to call .id on and connect its Issue below
 project0 = Project.create!(title: "Proj0",
                            summary: "The 0th project", 
                            description: "Create a good project using Rails")
 
-Issue.create!(summary: "issue summary0",
+puts
+puts "project0.id is"
+puts project0.id
+puts
+                           Issue.create!(summary: "issue summary0",
               description: "description0",
-              status: "Incomplete",
+              status: "Unresolved",
 
               project_id: project0.id) 
               #This is the foreign key which connects this issue with project0
+
+Issue.create!(summary: "issue summary1",
+              description: "description1",
+              status: "Resolved",
+
+              project_id: project0.id) 
+# ------------------
+project1 = Project.create!(title: "Proj1",
+                           summary: "The 1st project", 
+                           description: "Create a good project using Rails")
+
+puts
+puts "project1.id is"
+puts project1.id
+puts
+
+Issue.create!(summary: "issue summary1",
+              description: "description1",
+              status: "Unresolved",
+
+              project_id: project1.id) 
+
+Issue.create!(summary: "issue summary1",
+              description: "description1",
+              status: "Resolved",
+
+              project_id: project1.id) 
 
 # Project.create!([{
 # # projects = Project.create!([{
