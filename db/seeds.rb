@@ -8,11 +8,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#Get rid off all the data that's aleady in the DB
 Project.destroy_all
 Issue.destroy_all
 Comment.destroy_all
 User.destroy_all
 
+# we need a variable here, project0, to call .id on and connect its Issue below
 project0 = Project.create!(title: "Proj0",
                            summary: "The 0th project", 
                            description: "Create a good project using Rails")
@@ -20,8 +22,10 @@ project0 = Project.create!(title: "Proj0",
 Issue.create!(summary: "issue summary0",
               description: "description0",
               status: "Incomplete",
-              project_id: project0.id)
-              
+
+              project_id: project0.id) 
+              #This is the foreign key which connects this issue with project0
+
 # Project.create!([{
 # # projects = Project.create!([{
 # title: "Proj1",
