@@ -61,14 +61,42 @@ issue3 = Issue.create!(summary: "issue summary3",
 
               project_id: project1.id) 
 # ------------------
+# Create users linked to issues
 # See http://joshfrankel.me/blog/create-a-many-to-many-activerecord-association-in-ruby-on-rails/
-issue2.users.create(username: "username0", role: "user")
+# create various variables so we can refer to their DB entries
+# when creating new entries
+user0 = issue2.users.create!(username: "username0", role: "user")
+user1 = issue2.users.create!(username: "username1", role: "user")
+user2 = issue2.users.create!(username: "username2", role: "user")
+developer0 = issue2.users.create!(username: "dev0", role: "developer")
+project_manager0 = issue2.users.create!(username: "PM0", role: "project manager")
 
+issue3.users.create!(username: "username1", role: "user")
+issue3.users.create!(username: "username2", role: "user")
+developer1 = issue3.users.create!(username: "dev1", role: "developer")
+issue3.users.create!(username: "PM0", role: "project manager")
+# puts issue2.users.'1'.username
+# ------------------
+# Create comments
+comment0 = Comment.create!(content: "This is comment0",
+                 issue_id: issue3.id,
+                 user_id: user0.id)
+comment1 = Comment.create!(content: "This is comment0",
+                 issue_id: issue3.id,
+                 user_id: user1.id)
+comment2 = Comment.create!(content: "This is comment0",
+                 issue_id: issue2.id,
+                 user_id: user0.id)
+comment3 = Comment.create!(content: "This is comment0",
+                 issue_id: issue2.id,
+                 user_id: user2.id)
+
+# ------------------
 
 # comment0 = Comment.create!(content: "This is a comment",
 
 #                            issue_id: issue2.id)
-#                                 # add user id   
+ 
 
 
 # Project.create!([{
