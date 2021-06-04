@@ -27,14 +27,14 @@ puts
 puts "project0.id is"
 puts project0.id
 puts
-                           Issue.create!(summary: "issue summary0",
+issue0 = Issue.create!(summary: "issue summary0",
               description: "description0",
               status: "Unresolved",
 
               project_id: project0.id) 
               #This is the foreign key which connects this issue with project0
 
-Issue.create!(summary: "issue summary1",
+issue1 = Issue.create!(summary: "issue summary1",
               description: "description1",
               status: "Resolved",
 
@@ -49,17 +49,27 @@ puts "project1.id is"
 puts project1.id
 puts
 
-Issue.create!(summary: "issue summary1",
-              description: "description1",
+issue2 = Issue.create!(summary: "issue summary2",
+              description: "description2",
               status: "Unresolved",
 
               project_id: project1.id) 
 
-Issue.create!(summary: "issue summary1",
-              description: "description1",
+issue3 = Issue.create!(summary: "issue summary3",
+              description: "description4",
               status: "Resolved",
 
               project_id: project1.id) 
+# ------------------
+# See http://joshfrankel.me/blog/create-a-many-to-many-activerecord-association-in-ruby-on-rails/
+issue2.users.create(username: "username0", role: "user")
+
+
+# comment0 = Comment.create!(content: "This is a comment",
+
+#                            issue_id: issue2.id)
+#                                 # add user id   
+
 
 # Project.create!([{
 # # projects = Project.create!([{
