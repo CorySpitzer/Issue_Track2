@@ -14,5 +14,17 @@
                 </li>
             <% end %>
         </ul>
+
+        <h4> Issues: </h4>
+        <ul>
+            <% @user.issues.each do |issue| %>
+                <li>
+                    <p>  
+                        <%= issue.summary %>
+                    </p>
+                </li>
+            <% end %>
+        </ul>
+
     </li>
 </ul>
