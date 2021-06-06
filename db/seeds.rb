@@ -68,6 +68,11 @@ issue3 = Issue.create!(summary: "issue summary3",
 user0 = issue2.users.create!(username: "username0", role: "user")
 user1 = issue2.users.create!(username: "username1", role: "user")
 user2 = issue2.users.create!(username: "username2", role: "user")
+
+user0 = issue3.users.create!(username: "username0", role: "user")
+user1 = issue3.users.create!(username: "username1", role: "user")
+user2 = issue3.users.create!(username: "username2", role: "user")
+
 developer0 = issue2.users.create!(username: "dev0", role: "developer")
 project_manager0 = issue2.users.create!(username: "PM0", role: "project manager")
 
