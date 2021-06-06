@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "/issues", to: "issues#index"
   get "/issues/:id", to: "issues#show" #:id gets put in the params hash
   get "/projects", to: "projects#index"
+  get "/users", to: "users#index"
+  get "/users/:id", to: "users#show" 
   
   resources :projects, :issues
   # "creates seven different routes in your application"
