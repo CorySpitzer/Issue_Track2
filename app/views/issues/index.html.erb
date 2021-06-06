@@ -4,10 +4,14 @@
 <ul>
     <% @issues.each do |issue| %>
         <li>
-            <h2> <%= issue.summary  %> </h2>
-            <p> <%= issue.description  %> </p>
-            <h3> <%= issue.status  %> </h3>
-            
+            <h2> Summary: <%= issue.summary  %> </h2>
+            <p> Description: <%= issue.description  %> </p>
+            <h3> Status: <%= issue.status  %> </h3>
+            <h4> Comments: </h4>
+                <% @comments.each do |comment| %>
+                    <li>
+
+                    </li>
         </li>
     <% end %>
 </ul>

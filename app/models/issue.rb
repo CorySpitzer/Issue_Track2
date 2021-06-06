@@ -8,7 +8,6 @@ class Issue < ApplicationRecord
     # ActiveRecord::RecordInvalid: Validation failed: Projects must exist
     # when running rake db:seed
 
-
     validates :summary, presence: true
     validates :description, presence: true
     validates :status, presence: true
