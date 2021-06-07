@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/projects", to: "projects#index"
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show" 
+  get "/about", to: "abouts#index"
+  # get "/about", to: redirect("/about.html.erb")
   
   resources :projects, :issues
   # "creates seven different routes in your application"
