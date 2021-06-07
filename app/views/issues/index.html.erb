@@ -8,10 +8,14 @@
             <p> Description: <%= issue.description  %> </p>
             <h3> Status: <%= issue.status  %> </h3>
             <h4> Comments: </h4>
+                <% if @comments == nil %>
+                    <% @comments = ["There are no comments"] %>
+                <% end %>
                 <% @comments.each do |comment| %>
                     <li>
-
+                        <%= comment %>
                     </li>
+                <% end %>
         </li>
     <% end %>
 </ul>
