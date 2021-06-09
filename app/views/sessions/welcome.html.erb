@@ -1,0 +1,11 @@
+<h1>Sessions#welcome</h1>
+<p>Find me in app/views/sessions/welcome.html.erb</p>
+
+<h1>Login or Sign-up</h1>
+
+<% # credit https://levelup.gitconnected.com/simple-authentication-guide-with-ruby-on-rails-16a6255f0be8 %>
+<% if logged_in? %>
+    <h1>You are Logged In, <%= current_user.username %></h1>
+<%end%>
+<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Sign Up", '/users/new', method: :get%>

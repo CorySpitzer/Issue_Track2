@@ -1,0 +1,12 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+
+<% # credit https://levelup.gitconnected.com/simple-authentication-guide-with-ruby-on-rails-16a6255f0be8 %>
+<%= form_for @user do |form|%>
+    <%= form.label :username%><br>
+    <%= form.text_field :username%><br>
+    <%= form.label :password%><br>
+    <%= form.password_field :password%><br>
+    <%= form.submit %>
+<%end%>

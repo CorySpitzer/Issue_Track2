@@ -3,4 +3,5 @@ class User < ApplicationRecord
     has_many :comments
     validates :role, presence: true
     validates :username, presence: true
+    has_secure_password
 end
