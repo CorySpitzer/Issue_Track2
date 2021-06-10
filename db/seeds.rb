@@ -65,33 +65,76 @@ issue3 = Issue.create!(summary: "issue summary3",
 # See http://joshfrankel.me/blog/create-a-many-to-many-activerecord-association-in-ruby-on-rails/
 # create various variables so we can refer to their DB entries
 # when creating new entries
-user0 = issue2.users.create!(username: "username0", role: "user")
-user1 = issue2.users.create!(username: "username1", role: "user")
-user2 = issue2.users.create!(username: "username2", role: "user")
+
+# commenting this out/changing to user_x from user0 fixes: 
+# ActiveRecord::RecordInvalid: Validation failed: Email can't be blank, Password can't be blank
+user_x = issue2.users.create!(username: "username0", 
+                             role: "user",
+                             email: "a@a.com",
+                             password: "GoHome1",
+                             password_confirmation: "GoHome1")
+user1 = issue2.users.create!(username: "username1", 
+                             role: "user",
+                             email: "b@b.com",
+                             password: "GoHome2",
+                             password_confirmation: "GoHome2")
+user2 = issue2.users.create!(username: "username2", 
+                             role: "user",
+                             email: "c@c.com",
+                             password: "GoHome3",
+                             password_confirmation: "GoHome3")
 
 # user0 = issue3.users.create!(username: "username0", role: "user")
 # user1 = issue3.users.create!(username: "username1", role: "user")
 # user2 = issue3.users.create!(username: "username2", role: "user")
 
-developer0 = issue2.users.create!(username: "dev0", role: "developer")
-project_manager0 = issue2.users.create!(username: "PM0", role: "project manager")
+developer0 = issue2.users.create!(username: "dev0",
+                                  role: "developer",
+                                  email: "d@d.com",
+                                  password: "GoHome4",
+                                  password_confirmation: "GoHome4")
 
-issue3.users.create!(username: "username1", role: "user")
-issue3.users.create!(username: "username2", role: "user")
-developer1 = issue3.users.create!(username: "dev1", role: "developer")
-issue3.users.create!(username: "PM0", role: "project manager")
+project_manager0 = issue2.users.create!(username: "PM0", 
+                                        role: "project manager",
+                                        email: "e@e.com",
+                                        password: "GoHome5",
+                                        password_confirmation: "GoHome5")
+
+issue3.users.create!(username: "username1", 
+                     role: "user",
+                     email: "f@f.com",
+                     password: "GoHome6",
+                     password_confirmation: "GoHome6")
+
+issue3.users.create!(username: "username2",
+                     role: "user",
+                     email: "g@g.com",
+                     password: "GoHome7",
+                     password_confirmation: "GoHome7")
+
+developer1 = issue3.users.create!(username: "dev1",
+                                  role: "developer",
+                                  email: "h@h.com",
+                                  password: "GoHome8",
+                                  password_confirmation: "GoHome8")
+
+issue3.users.create!(username: "PM0",
+                     role: "project manager",
+                     email: "pm@pm.com",
+                     password: "AllRoads1",
+                     password_confirmation: "AllRoads1")
 # puts issue2.users.'1'.username
 # ------------------
 # Create comments
 comment0 = Comment.create!(content: "This is comment0",
                  issue_id: issue3.id,
-                 user_id: user0.id)
+                 user_id: user_x.id)
 comment1 = Comment.create!(content: "This is comment0",
                  issue_id: issue3.id,
                  user_id: user1.id)
 comment2 = Comment.create!(content: "This is comment0",
                  issue_id: issue2.id,
-                 user_id: user0.id)
+                 user_id: user_x.id)
 comment3 = Comment.create!(content: "This is comment0",
                  issue_id: issue2.id,
                  user_id: user2.id)
