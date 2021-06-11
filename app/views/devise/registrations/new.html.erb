@@ -23,15 +23,8 @@
 
   <div class="field">
     <%= f.label :role, class:"label" %>
-    <%= f.text_field :role, class:"input" %>
+    <%= f.select :role, ["end_user", "developer", "project_manager"] %>
   </div>
-
-  <label for="role">Choose a role:</label>
-  <select name="role" id="role">
-    <option value="project_manager">Project Manager</option>
-    <option value="developer">Developer</option>
-    <option value="end_user">End User</option>
-  </select>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
