@@ -1,19 +1,28 @@
-<h1> an Issue </h1>
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <%= render "shared/menu" %>
 
-<ul>
-    <li>
-        <h2> Summary: <%= @issue.summary  %> </h2>
-        <p> Description: <%= @issue.description  %> </p>
-        <h3> Status: <%= @issue.status  %> </h3>
-        <h4> Comments: </h4>
+        <h1> an Issue </h1>
+
         <ul>
-            <% @issue.comments.each do |comment| %>
-                <li>
-                    <p>
-                        <%= comment.content %>
-                    </p>
-                </li>
-            <% end %>
+            <li>
+                <h2> Summary: <%= @issue.summary  %> </h2>
+                <p> Description: <%= @issue.description  %> </p>
+                <h3> Status: <%= @issue.status  %> </h3>
+                <h4> Comments: </h4>
+                <ul>
+                    <% @issue.comments.each do |comment| %>
+                        <li>
+                            <p>
+                                <%= comment.content %>
+                            </p>
+                        </li>
+                    <% end %>
+                </ul>
+            </li>
         </ul>
-    </li>
-</ul>
+    </body>
+</html>
