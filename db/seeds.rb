@@ -21,7 +21,8 @@ User.destroy_all
 # we need a variable here, project0, to call .id on and connect its Issue below
 project0 = Project.create!(title: "Proj0",
                            summary: "The 0th project", 
-                           description: "Create a good project using Rails")
+                           description: "Create a good project using Rails",
+                           status: "incomplete")
 
 puts
 puts "project0.id is"
@@ -42,7 +43,8 @@ issue1 = Issue.create!(summary: "issue summary1",
 # ------------------
 project1 = Project.create!(title: "Proj1",
                            summary: "The 1st project", 
-                           description: "Create a good project using Rails")
+                           description: "Create a good project using Rails",
+                           status: "complete")
 
 puts
 puts "project1.id is"
