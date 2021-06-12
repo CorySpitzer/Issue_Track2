@@ -27,3 +27,15 @@ nav {
  .centered {
     text-align: center;
  }
+
+ .underlined {
+     text-decoration: underline;
+ }
+
+ /* .border-box {
+     outline: 1px solid black;
+ } */
+
+ ul {
+    list-style-type: none;
+ }

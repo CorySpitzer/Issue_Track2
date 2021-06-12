@@ -7,10 +7,18 @@
         <h2 class="centered" >Project: <%=  @project.title %> 
         <!-- The columns below are using Bootstrap: -->
         <div class="row"> 
-            <div class="col-8">col-8</div>
+            <div class="col-8"><span class="underlined"> Issues: </span>
+                <ul>
+                    <% @project.issues.each do |issue| %>
+                        <li><button type="button" class="btn btn-light">
+                            <p><%= issue.summary %></p>
+                        </button></li>
+                    <% end %>
+                </ul>
+            </div>
             <div class="col-4">
-                <h5> Status: <%= @project.status %>
-                </h5>
+                <h5> Status: <%= @project.status %></h5>
+                <button type="button" class="btn btn-light">Project Report</button>
             </div>
 
         </div>
