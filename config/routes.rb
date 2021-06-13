@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "/issues", to: "issues#index"
   get "/issues/:id", to: "issues#show" #:id gets put in the params hash
-  get "/projects", to: "projects#index"
+  # get "/projects", to: "projects#index"
+  resources :projects
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show" 
   get "/about", to: "abouts#index"
