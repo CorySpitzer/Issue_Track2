@@ -13,7 +13,8 @@
                         <li><button type="button" class="btn btn-light">
                             <p><%= issue.summary %> - <%= issue.status %></p>
                             <% issue.comments.each do |comment| %>
-                                <p><% comment.users.username %>: <%= comment.content %></p>
+                                <p><div class="bold">Username: <%= User.find(comment.user_id).username %>:</div> 
+                                <%= comment.content %></p>
                             <% end %>
                         </button></li>
                     <% end %>
