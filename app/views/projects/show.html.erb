@@ -8,10 +8,13 @@
         <!-- The columns below are using Bootstrap: -->
         <div class="row"> 
             <div class="col-8"><span class="underlined"> Issues: </span>
-                <ul>
+                <ul class="no-bullets">
                     <% @project.issues.each do |issue| %>
                         <li><button type="button" class="btn btn-light">
-                            <p><%= issue.summary %></p>
+                            <p><%= issue.summary %> - <%= issue.status %></p>
+                            <% issue.comments.each do |comment| %>
+                                <p><% comment.users.username %>: <%= comment.content %></p>
+                            <% end %>
                         </button></li>
                     <% end %>
                 </ul>
