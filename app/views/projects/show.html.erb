@@ -23,6 +23,10 @@
             <div class="col-4">
                 <h5> Status: <%= @project.status %></h5>
                 <button type="button" class="btn btn-light">Project Report</button>
+                <%= button_to "Project Report", 
+                    project_reports_path(@project), 
+                    :method => :get
+                %>
             </div>
 
         </div>

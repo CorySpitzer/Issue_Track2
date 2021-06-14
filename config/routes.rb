@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # get "/about", to: redirect("/about.html.erb")
   get "/comments", to: "comments#index"
   get "/comments/:id", to: "comments#show"
+  get "/project_reports", to: "project_reports#index"
   
   resources :projects, :issues
   # "creates seven different routes in your application"
