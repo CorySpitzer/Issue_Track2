@@ -28,11 +28,21 @@ class ProjectReportsController < ApplicationController
 
             # end
         end
-        @comments_per_issue = (project_comments_count.to_f / issue_count)
-        p "(project_comments_count.to_f / issue_count)"
-        p (project_comments_count.to_f / issue_count)
-        p "project_comments_count:" + project_comments_count.to_s
-        p "issue_count: " + issue_count.to_s
+
+        # Average comments per issue
+        @comments_per_issue = project_comments_count.to_f / @project.issues.count
+
+        # Number of issues
+        @issue_count = @project.issues.count
+
+        #number of comments
+        @comment_count = project_comments_count
+
+        # @comments_per_issue = (project_comments_count.to_f / issue_count)
+        # p "(project_comments_count.to_f / issue_count)"
+        # p (project_comments_count.to_f / issue_count)
+        # p "project_comments_count:" + project_comments_count.to_s
+        # p "issue_count: " + issue_count.to_s
         # @comments_per_user = (@project.comments.count.to_f / User.count).round(2)
 
         # Check and count what role each user is
