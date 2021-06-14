@@ -4,14 +4,15 @@
     </head>
     <body>
         <h2 class="centered"><%=  @project.title %> Project Report:</h2>
-        <div class="box">
+        <div class="box centered">
+            <p></p>
             <% %>
-            <p>Number of issues: <%= @number_of_issues%></p>
-            <p><%= %></p>
-            <p><%= %></p>
-            <p><%= %></p>
-            <p><%= %></p>
-            <p><%= %></p>
+            <p>Number of issues: <%= @number_of_issues %></p>
+            <p>Proportion of resolved issues: <%= @proportion_of_resolved_issues%></p>
+            <p>Average comments per issue: <%= %></p>
+            <p>End users involved: <%= %></p>
+            <p>Developers involved: <%= %></p>
+            <p>Project Managers involved: <%= %></p>
         <div> 
     </body>
 </html>
