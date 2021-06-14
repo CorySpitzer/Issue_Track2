@@ -4,5 +4,16 @@
     </head>
     <body>
         <%= render "shared/menu" %>
+        <div class="centered"> 
+            <h2>New Project:</h2>
+            <p>Description </p> 
+
+            <%= form_with model: @project do |form| %>
+                <%= form.text_area :message, size: "25x5" %>
+                <p><%= form.submit "Submit" %></p>
+            <% end %>
+
+            <%= link_to 'Submit', new_project_path, :class => "btn btn-light" %>
+        </div>
     <body>
 <html>

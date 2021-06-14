@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/issues/:id", to: "issues#show" #:id gets put in the params hash
   # get "/projects", to: "projects#index"
   resources :projects
+  # get "projects/report", to: "projects#report"
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show" 
   get "/about", to: "abouts#index"
