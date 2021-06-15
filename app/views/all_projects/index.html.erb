@@ -1,0 +1,19 @@
+<h1>AllProjects#index</h1>
+<p>Find me in app/views/all_projects/index.html.erb</p>
+
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <h2 class="centered">All Projects Report:</h2>
+        <div class="box centered">
+            <p></p>
+            <p>Number of Projects: <%= @number_of_projects %></p>
+            <p>Average issues per project: <%= @mean_issues_per_project %></p>
+            <p>Proportion of resolved issues per project: <%= @proportion_of_resolved_issues_per_project %></p>
+            <p>End users per project <%= @end_users_per_project %></p>
+            <p>Project managers per project<%= @pms_per_project %></p>
+        <div> 
+    </body>
+</html>

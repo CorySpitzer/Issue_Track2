@@ -57,11 +57,5 @@ class ProjectReportsController < ApplicationController
         #         @end_users_involved += 1
         #     end
         # end
-
-        
-
- 
-
-
     end
 end

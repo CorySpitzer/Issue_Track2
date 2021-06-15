@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'all_projects/index'
   #  get 'home/index'
   devise_for :users
   # For details on the DSL available within this file, 
