@@ -6,8 +6,9 @@
         <h2 class="centered"><%=  @project.title %> Project Report:</h2>
         <div class="box centered">
             <p></p>
+            <% %>
             <p>Number of issues: <%= @number_of_issues %></p>
-            <p>Proportion of resolved issues: <%= @percentage_of_resolved_issues %>%</p>
+            <p>Percentage of resolved issues: <%= @percentage_of_resolved_issues %>%</p>
             <p>Average comments per issue: <%= @comments_per_issue %></p>
             <p>Number of issues: <%= @issue_count %></p>
             <p>Number of comments: <%= @comment_count %></p>
