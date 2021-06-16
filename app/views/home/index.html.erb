@@ -12,19 +12,27 @@
             <h2>Project Manager Dashboard </h2>
         <% elsif @user.role.downcase == "developer" %>
             <h2 class="underlined"> Developer Dashboard </h2>
+
             <div class="container">
                 <div class="row">
+
                     <div class=col-sm>
                         <h4 class="underlined">Projects </h4>
-                            <% Project.all.each do |project| %>
-                                <p> * <%= link_to project.title, project_path(project) %></p>
-                            <% end %>
+                        <% Project.all.each do |project| %>
+                            <p> * <%= link_to project.title, project_path(project) %></p>
+                        <% end %>
                     </div>
+
                     <div class=col-sm>
                         <h4 class="underlined">Issues </h4>
+                        <% Issue.all.each do |issue| %>
+                            <p> * [<%= Project.find(issue.project_id).title %>] <%= link_to issue.summary, issue_path(issue) %></p>
+                        <% end %>
                     </div>
+
                 </div>
             </div>
+
         <% elsif user_signed_in %>
             <h2> End user dashboard </h2>
         <% end %>
