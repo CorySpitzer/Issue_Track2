@@ -5,16 +5,17 @@
     <body>
         <%= render "shared/menu" %>
         <div class="centered">
-        <h1>Home#index</h1>
-        <p>Find me in app/views/home/index.html.erb</p>
+
         <% if @user == nil %>
         <p><%= link_to "Login", new_user_session_path %> </p>
         <% elsif @user.role.downcase == "project_manager"%>
-            <p>PMs dashboard </p>
+            <h2>Project Manager Dashboard </h2>
         <% elsif @user.role.downcase == "developer" %>
-            <p> Devs dashboard </p>
+            <h2> Developer Dashboard </h2>
         <% elsif user_signed_in %>
-            <p> End user dashboard </p>
+            <h2> End user dashboard </h2>
         <% end %>
+        <div class="bottom"><p>Home#index</p>
+        <p>Find me in app/views/home/index.html.erb</p></div>
     </body>
 </html>
