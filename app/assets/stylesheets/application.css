@@ -43,3 +43,14 @@ nav {
  .bold {
      font-weight: bold;
  }
+
+ 
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.underlined {
+    text-decoration: underline;
+}

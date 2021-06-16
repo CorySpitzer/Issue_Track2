@@ -11,7 +11,20 @@
         <% elsif @user.role.downcase == "project_manager"%>
             <h2>Project Manager Dashboard </h2>
         <% elsif @user.role.downcase == "developer" %>
-            <h2> Developer Dashboard </h2>
+            <h2 class="underlined"> Developer Dashboard </h2>
+            <div class="container">
+                <div class="row">
+                    <div class=col-sm>
+                        <h4 class="underlined">Projects </h4>
+                            <% Project.all.each do |project| %>
+                                <p> * <%= link_to project.title, project_path(project) %></p>
+                            <% end %>
+                    </div>
+                    <div class=col-sm>
+                        <h4 class="underlined">Issues </h4>
+                    </div>
+                </div>
+            </div>
         <% elsif user_signed_in %>
             <h2> End user dashboard </h2>
         <% end %>
