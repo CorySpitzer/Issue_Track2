@@ -4,8 +4,17 @@
     </head>
     <body>
         <%= render "shared/menu" %>
+        <div class="centered">
         <h1>Home#index</h1>
         <p>Find me in app/views/home/index.html.erb</p>
-        
+        <% if @user == nil %>
+        <p><%= link_to "Login", new_user_session_path %> </p>
+        <% elsif @user.role.downcase == "project_manager"%>
+            <p>PMs dashboard </p>
+        <% elsif @user.role.downcase == "developer" %>
+            <p> Devs dashboard </p>
+        <% elsif user_signed_in %>
+            <p> End user dashboard </p>
+        <% end %>
     </body>
 </html>

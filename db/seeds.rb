@@ -97,7 +97,7 @@ developer0 = issue2.users.create!(username: "dev0",
                                   password_confirmation: "GoHome4")
 
 project_manager0 = issue2.users.create!(username: "PM0", 
-                                        role: "project manager",
+                                        role: "project_manager",
                                         email: "e@e.com",
                                         password: "GoHome5",
                                         password_confirmation: "GoHome5")
@@ -121,7 +121,7 @@ developer1 = issue3.users.create!(username: "dev1",
                                   password_confirmation: "GoHome8")
 
 issue3.users.create!(username: "PM0",
-                     role: "project manager",
+                     role: "project_manager",
                      email: "pm@pm.com",
                      password: "AllRoads1",
                      password_confirmation: "AllRoads1")
