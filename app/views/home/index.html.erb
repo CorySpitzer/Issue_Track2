@@ -10,6 +10,34 @@
         <p><%= link_to "Login", new_user_session_path %> </p>
         <% elsif @user.role.downcase == "project_manager"%>
             <h2>Project Manager Dashboard </h2>
+            <div class="container">
+                <div class="row">
+
+                    <div class=col-sm>
+                        <p> <%= link_to 'New Project', new_project_path, :class => "btn btn-light" %> </p>
+                        <h4 class="underlined"> Projects </h4>
+                        <% Project.all.each do |project| %>
+                            <p> * <%= link_to project.title, project_path(project) %>
+                                 <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
+                                 <%= link_to 'Delete', project_path(project),  
+                                     method: :delete, :confirm => "Are you sure?", 
+                                     :class => "btn btn-danger" %>
+                            </p>
+                        <% end %>
+
+                        <h4 class="underlined">Issues </h4>
+                        <% Issue.all.each do |issue| %>
+                            <p> * [<%= Project.find(issue.project_id).title %>] <%= link_to issue.summary, issue_path(issue) %></p>
+                        <% end %>
+                    </div>
+
+                    <div class=col-sm>
+                        <p> <%= link_to 'All Projects Report', all_projects_index_path, :class => "btn btn-light" %> </p>
+                    </div>
+
+                </div>
+            </div>
+
         <% elsif @user.role.downcase == "developer" %>
             <h2 class="underlined"> Developer Dashboard </h2>
 
