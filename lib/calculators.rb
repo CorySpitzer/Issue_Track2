@@ -26,10 +26,10 @@ class ProjectStatistics
         @project_comments_count = 0
         @project.issues.each do |issue|
             issue.comments.each do |comment|
-                @project_comment_count += 1
+                @project_comments_count += 1
             end
         end
-        @project_comment_count
+        @project_comments_count
     end
 
     def mean_comments_per_issue
@@ -37,7 +37,7 @@ class ProjectStatistics
     end
 
     def percentage_of_resolved_issues
-        100 * @resolved_issues.to_f / @project_issues_count
+        100 * count_resolved_issues.to_f / @project_issues_count
     end
 
 end
