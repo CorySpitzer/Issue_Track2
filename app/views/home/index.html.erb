@@ -8,15 +8,21 @@
 
         <% if @user == nil %>
         <p><%= link_to "Login", new_user_session_path %> </p>
-        <% elsif @user.role.downcase == "project_manager"%>
-            <h2>Project Manager Dashboard </h2>
-        <% elsif @user.role.downcase == "developer" %>
-            <h2 class="underlined"> Developer Dashboard </h2>
-
+        <% elsif @user.role.downcase == "developer" || @user.role.downcase == "project_manager" %>
+            <h2 class="underlined"> 
+                <% if @user.role.downcase == "developer" %>
+                    Developer Dashboard 
+                <% elsif @user.role.downcase == "project_manager" %>
+                    Project Manager Dashboard
+                <% end %> </h2>
+            
             <div class="container">
                 <div class="row">
 
                     <div class=col-sm>
+                        <% if @user.role.downcase == "project_manager" %>
+                            <p><%= link_to 'New Project', new_project_path, :class => "btn btn-light"%> </p>
+                        <% end %>
                         <h4 class="underlined">Projects </h4>
                         <% Project.all.each do |project| %>
                             <p> * <%= link_to project.title, project_path(project) %></p>
@@ -24,6 +30,9 @@
                     </div>
 
                     <div class=col-sm>
+                        <% if @user.role.downcase == "project_manager" %>
+                            <p><%= link_to 'All Projects Report', all_projects_index_path, :class => "btn btn-light"%> </p>
+                        <% end %>
                         <h4 class="underlined">Issues </h4>
                         <% Issue.all.each do |issue| %>
                             <p> * [<%= Project.find(issue.project_id).title %>] <%= link_to issue.summary, issue_path(issue) %></p>
