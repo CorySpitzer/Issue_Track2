@@ -5,7 +5,7 @@
         <li>
             <div class="card">
                 <div class="card-body">
-                    <h2> Summary: <%= issue.summary  %> </h2>
+                    <h2> Summary: <%= link_to issue.summary, issue_path(issue)  %> </h2>
                     <p> Description: <%= issue.description  %> </p>
                     <h3> Status: <%= issue.status  %> </h3>
                     <h4> Comments: </h4>
