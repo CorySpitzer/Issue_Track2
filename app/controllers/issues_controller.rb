@@ -17,9 +17,19 @@ class IssuesController < ApplicationController
   end
 
   def create
-    @issue = Issue.create!(summary: params[:summary], 
-                           description: params[:description], 
-                           status: params[:status])
+    @project_id = params[:project_id]
+    # if user exists
+    if User.find(@project_id)
+      Project.find(@project_id).issues.create!(summary: params[:summary], 
+                                               description: params[:description], 
+                                               status: params[:status])
+    else
+      # user doesn't exist     
+    end
+    # @user = @issue.users.create
+    # @issue = Issue.create!(summary: params[:summary], 
+    #                        description: params[:description], 
+    #                        status: params[:status])
     # @issue = Issue.new(params[:issue])
     redirect_to issues_url
   end
