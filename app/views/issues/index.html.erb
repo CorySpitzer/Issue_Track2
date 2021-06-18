@@ -1,24 +1,29 @@
 <%= render "shared/menu" %>
 
-
-<h1>Issues#index</h1>
-<p>Find me in app/views/issues/index.html.erb</p>
-
 <ul>
     <% @issues.each do |issue| %>
         <li>
-            <h2> Summary: <%= issue.summary  %> </h2>
-            <p> Description: <%= issue.description  %> </p>
-            <h3> Status: <%= issue.status  %> </h3>
-            <h4> Comments: </h4>
-                <% if @comments == nil %>
-                    <% @comments = ["There are no comments"] %>
-                <% end %>
-                <% @comments.each do |comment| %>
-                    <li>
-                        <%= comment %>
-                    </li>
-                <% end %>
+            <div class="card">
+                <div class="card-body">
+                    <h2> Summary: <%= issue.summary  %> </h2>
+                    <p> Description: <%= issue.description  %> </p>
+                    <h3> Status: <%= issue.status  %> </h3>
+                    <h4> Comments: </h4>
+                    <% if @comment_content == nil %>
+                        <% @comment_content = ["There are no comments"] %>
+                    <% end %>
+                    <% @comment_content.each do |comment| %>
+                        <li>
+                            <%= comment %>
+                        </li>
+                    <% end %>
+                </div>
+            </div>
         </li>
     <% end %>
 </ul>
+
+<div class centered>
+    <p>Issues#index</p>
+    <p>Find me in app/views/issues/index.html.erb</p>
+</div>

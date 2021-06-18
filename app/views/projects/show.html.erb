@@ -21,7 +21,7 @@
                         </div>
                     <% end %>
                 </ul>
-                <%= form_with model: @issue do |form| %>
+                <%= form_with model: @issue, :url => new_issue_path do |form| %>
                     <p><%= form.label :New_Issue %></p>
                     <h5>Summary: </h5>
                     <p><%= form.text_area :summary, size: "15x3" %></p>

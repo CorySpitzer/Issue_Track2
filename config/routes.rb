@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "/issues", to: "issues#index"
   get "/issues/:id", to: "issues#show" #:id gets put in the params hash
+  resources :issues
   # get "/projects", to: "projects#index"
-  resources :projects
   # get "projects/report", to: "projects#report"
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show" 
@@ -17,9 +17,10 @@ Rails.application.routes.draw do
   get "/comments", to: "comments#index"
   get "/comments/:id", to: "comments#show"
   get "/project_reports", to: "project_reports#index"
-  
+
   
   resources :projects, :issues
   # "creates seven different routes in your application"
   # https://guides.rubyonrails.org/routing.html
+  post "/issues/new", to: "issues#create" #create
 end
