@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   # "creates seven different routes in your application"
   # https://guides.rubyonrails.org/routing.html
   post "/issues/new", to: "issues#create" #create
+  post "/comments", to: "comments#create" #create
 end
