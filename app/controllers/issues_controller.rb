@@ -10,7 +10,6 @@ class IssuesController < ApplicationController
         end
       end
     end
-
   end
 
   def show
@@ -18,7 +17,10 @@ class IssuesController < ApplicationController
   end
 
   def create
-    @issue = Issue.new(params[:issue])
+    @issue = Issue.create!(summary: params[:summary], 
+                           description: params[:description], 
+                           status: params[:status])
+    # @issue = Issue.new(params[:issue])
     redirect_to issues_url
   end
 end
