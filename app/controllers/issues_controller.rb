@@ -8,4 +8,8 @@ class IssuesController < ApplicationController
   def show
     @issue = Issue.find(params[:id])
   end
+
+  def create
+    @issue = Issue.new(params[:issue])
+  end
 end

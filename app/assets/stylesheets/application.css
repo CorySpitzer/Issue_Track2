@@ -54,3 +54,7 @@ nav {
 .underlined {
     text-decoration: underline;
 }
+
+.card {
+    width: 80%;
+}

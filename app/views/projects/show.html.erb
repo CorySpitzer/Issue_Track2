@@ -10,19 +10,30 @@
             <div class="col-8"><span class="underlined"> Issues: </span>
                 <ul class="no-bullets">
                     <% @project.issues.each do |issue| %>
-                        <li><button type="button" class="btn btn-light">
-                            <p><%= issue.summary %> - <%= issue.status %></p>
-                            <% issue.comments.each do |comment| %>
-                                <p><div class="bold">Username: <%= User.find(comment.user_id).username %>:</div> 
-                                <%= comment.content %></p>
-                            <% end %>
-                        </button></li>
+                        <div class="card">
+                            <li><div class="card-body">
+                                <p><%= issue.summary %> - <%= issue.status %></p>
+                                <% issue.comments.each do |comment| %>
+                                    <p><div class="bold">Username: <%= User.find(comment.user_id).username %>:</div> 
+                                    <%= comment.content %></p>
+                                <% end %>
+                            </div></li>
+                        </div>
                     <% end %>
                 </ul>
+                <%= form_with model: @issue do |form| %>
+                    <p><%= form.label :New_Issue %></p>
+                    <h5>Summary: </h5>
+                    <p><%= form.text_area :summary, size: "15x3" %></p>
+                    <h5>Description: </h5>
+                    <p><%= form.text_area :description, size: "30x5" %></p>
+                    <h5>Status: </h5>
+                    <p><%= form.text_area :status, size: "10x2" %></p>
+                    <%= form.submit %>
+                <% end %>
             </div>
             <div class="col-4">
                 <h5> Status: <%= @project.status %></h5>
-                <button type="button" class="btn btn-light">Project Report</button>
                 <%= button_to "Project Report", 
                     project_reports_path(@project), 
                     :method => :get
