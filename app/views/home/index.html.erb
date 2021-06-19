@@ -24,9 +24,17 @@
                             <p><%= link_to 'New Project', new_project_path, :class => "btn btn-light"%> </p>
                         <% end %>
                         <h4 class="underlined">Projects </h4>
-                        <% Project.all.each do |project| %>
-                            <p> * <%= link_to project.title, project_path(project) %></p>
-                        <% end %>
+                        <ul>
+                            <% Project.all.each do |project| %>
+                                <li>
+                                    <p>* <%= link_to project.title, project_path(project) %>
+                                    <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
+                                    <%= link_to 'Delete', project_path(project),  
+                                        method: :delete, :confirm => "Are you sure?", 
+                                        :class => "btn btn-danger" %></p>
+                                    </li>
+                            <% end %>
+                        </ul>
                     </div>
 
                     <div class=col-sm>
