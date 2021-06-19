@@ -32,7 +32,7 @@
                                     <%= link_to 'Delete', project_path(project),  
                                         method: :delete, :confirm => "Are you sure?", 
                                         :class => "btn btn-danger" %></p>
-                                    </li>
+                                </li>
                             <% end %>
                         </ul>
                     </div>
@@ -42,9 +42,19 @@
                             <p><%= link_to 'All Projects Report', all_projects_index_path, :class => "btn btn-light"%> </p>
                         <% end %>
                         <h4 class="underlined">Issues </h4>
-                        <% Issue.all.each do |issue| %>
-                            <p> * [<%= Project.find(issue.project_id).title %>] <%= link_to issue.summary, issue_path(issue) %></p>
-                        <% end %>
+                        <ul>
+                            <% Issue.all.each do |issue| %>
+                                <li>
+                                <p> * [<%= Project.find(issue.project_id).title %>] 
+                                    <%= link_to issue.summary, issue_path(issue) %>
+                                    <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
+                                    <%= link_to 'Delete', issue_path(issue),  
+                                        method: :delete, :confirm => "Are you sure?", 
+                                        :class => "btn btn-danger" %>
+                                </p>
+                                </li>
+                            <% end %>
+                        </ul>
                     </div>
 
                 </div>

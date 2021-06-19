@@ -33,4 +33,15 @@ class IssuesController < ApplicationController
     # @issue = Issue.new(params[:issue])
     redirect_to issues_url
   end
+
+  def destroy
+    @issue = Issue.find(params[:id])
+    # first we must destroy any associated comments
+    @issue.comments.each do |comment|
+      comment.destroy
+    end
+    # Then we can destroy our isssue which no longer has comments
+    @issue.destroy
+    redirect_back fallback_location: '/'
+  end
 end
