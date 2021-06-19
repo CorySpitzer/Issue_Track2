@@ -23,4 +23,12 @@ class ProjectsController < ApplicationController
     @project.destroy
     redirect_back fallback_location: '/'
   end
+
+  def create 
+    project = Project.create!(title: params[:title],
+    summary: params[:summary], 
+    description: params[:description],
+    status: params[:status])
+    redirect_to projects_path(project)
+  end
 end

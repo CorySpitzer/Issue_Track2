@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   
   resources :projects, :issues
+  post "projects/new", to: "projects#create"
   # "creates seven different routes in your application"
   # https://guides.rubyonrails.org/routing.html
   post "/issues/new", to: "issues#create" #create

@@ -9,11 +9,17 @@
             <p>Description </p> 
 
             <%= form_with model: @project do |form| %>
-                <%= form.text_area :message, size: "25x5" %>
+                <h3>Title: </h3>
+                <p><%= form.text_area :title, size: "16x1" %></p>
+                <h3>Summary: </h3>
+                <p><%= form.text_area :summary, size: "20x2" %></p>
+                <h3>Description:  </h3>
+                <p><%= form.text_area :description, size: "25x5" %></p>
+                <h3>Status (complete or incomplete): </h3>
+                <p><%= form.text_area :title, size: "16x1" %></p>
                 <p><%= form.submit "Submit" %></p>
             <% end %>
 
-            <%= link_to 'Submit', new_project_path, :class => "btn btn-light" %>
         </div>
     <body>
 <html>
