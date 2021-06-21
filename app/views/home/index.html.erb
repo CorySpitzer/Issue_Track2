@@ -35,6 +35,13 @@
                                 </li>
                             <% end %>
                         </ul>
+                        <p>   </p>
+                        <%= form_with url: users_path do |form| %>
+                            <h3>Assign a user (user id) to an issue (issue id): </h3>
+                            <p><%= form.text_area :user_id, size: "16x1" %></p>
+                            <%= form.text_area :issue_id, size: "16x1" %>
+                            <p><%= form.submit %></p>
+                        <% end %></p>
                     </div>
 
                     <div class=col-sm>
@@ -44,13 +51,14 @@
                         <h4 class="underlined">Issues </h4>
                         <ul>
                             <% Issue.all.each do |issue| %>
-                                <li>
+                                <li class="card">
                                 <p> * [<%= Project.find(issue.project_id).title %>] 
                                     <%= link_to issue.summary, issue_path(issue) %>
                                     <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
                                     <%= link_to 'Delete', issue_path(issue),  
                                         :class => "btn btn-danger",
                                         method: :delete, data: { confirm: "Are you sure?" }  %> 
+
                                 </p>
                                 </li>
                             <% end %>
@@ -63,7 +71,7 @@
         <% elsif user_signed_in %>
             <h2> End user dashboard </h2>
         <% end %>
-        <div class="bottom"><p>Home#index</p>
+        <div class="centered"><p>Home#index</p>
         <p>Find me in app/views/home/index.html.erb</p></div>
     </body>
 </html>
