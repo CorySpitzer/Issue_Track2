@@ -10,11 +10,12 @@ class HomeController < ApplicationController
     # join table by adding the user id and issue id to it
     # user = User.find(params[:user_id])
     # issue = Issue.find(params[:issue.id])
-    if User.ids.include?(params[:user_id].to_i) and Issue.ids.include?(params[:issue_id].to_i)
-      User.find(params[:user_id]).issues << Issue.find(params[:issue_id])
-    else
+    User.find_by_username(params[:username]).issues << Issue.find_by_summary(params[:summary])
+    # if User.ids.include?(params[:user_id].to_i) and Issue.ids.include?(params[:issue_id].to_i)
+    #   User.find(params[:user_id]).issues << Issue.find(params[:issue_id])
+    # else
       
-    end
+    # end
     redirect_back(fallback_location: root_path)
   end
 end

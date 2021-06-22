@@ -37,8 +37,18 @@
                         </ul>
                         <%= form_with url: "/" do |form| %>
                             <h3>Assign a user to an issue: </h3>
-                            <p>user id: <%= form.text_area :user_id, size: "16x1" %></p>
-                            <p>issue id: <%= form.text_area :issue_id, size: "16x1" %></p>
+                            <% usernames = [] %>
+                            <% User.all.each do |user| %>
+                                <% usernames << user.username%>
+                            <% end %>
+                            <p><%= form.select :username, usernames %></p>
+
+                            <% summaries = [] %>
+                            <% Issue.all.each do |issue| %>
+                                <% summaries << issue.summary%>
+                            <% end %>
+                            <p><%= form.select :summary, summaries %></p>
+
                             <p><%= form.submit %></p>
                         <% end %></p>
                     </div>
