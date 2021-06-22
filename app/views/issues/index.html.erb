@@ -7,16 +7,28 @@
                 <div class="card-body">
                     <h2> Summary: <%= link_to issue.summary, issue_path(issue)  %> </h2>
                     <p> Description: <%= issue.description  %> </p>
-                    <h3> Status: <%= issue.status  %> </h3>
+                    <h3> Status: 
+                    <% if issue.status.downcase == "unresolved" %>
+                        <span class="red"><%= issue.status  %></span></h3>
+                    <% else %>
+                        <span class="green"><%= issue.status  %></span></h3>
+                    <% end %>
+                    
                     <h4> Comments: </h4>
                     <% if @comment_content == nil %>
                         <% @comment_content = ["There are no comments"] %>
                     <% end %>
-                    <% @comment_content.each do |comment| %>
-                        <li>
-                            <%= comment %>
-                        </li>
-                    <% end %>
+                    <ul>
+                        <% @comment_content.each do |comment| %>
+                            <li>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <%= comment %>
+                                    </div>
+                                </div>
+                            </li>
+                        <% end %>
+                    </ul>
                 </div>
             </div>
         </li>
