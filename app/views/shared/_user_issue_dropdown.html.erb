@@ -1,0 +1,12 @@
+                            <h3>Assign a user to an issue: </h3>
+                            <% usernames = [] %>
+                            <% User.all.each do |user| %>
+                                <% usernames << user.username%>
+                            <% end %>
+                            <p><%= form.select :username, usernames %></p>
+
+                            <% summaries = [] %>
+                            <% Issue.all.each do |issue| %>
+                                <% summaries << issue.summary%>
+                            <% end %>
+                            <p><%= form.select :summary, summaries %></p>

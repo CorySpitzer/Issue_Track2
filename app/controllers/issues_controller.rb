@@ -14,18 +14,22 @@ class IssuesController < ApplicationController
 
   def show
     @issue = Issue.find(params[:id])
+    # user = User.find_by_username(params[:username])
+    
+    # user.comments << 
+    #  << Issue.find_by_summary(params[:summary])
   end
 
   def create
-    @project_id = params[:project_id]
+    # @project_id = params[:project_id]
     # if user exists
-    if User.find(@project_id)
-      Project.find(@project_id).issues.create!(summary: params[:summary], 
-                                               description: params[:description], 
-                                               status: params[:status])
-    else
-      # user doesn't exist     
-    end
+    # if User.find_by_username(params[:username])
+    #   Issue.find_by_summary(params[:summary]).issues.create!(summary: params[:summary], 
+    #                                            description: params[:description], 
+    #                                            status: params[:status])
+    # else
+    #   # user doesn't exist     
+    # end
     # @user = @issue.users.create
     # @issue = Issue.create!(summary: params[:summary], 
     #                        description: params[:description], 
