@@ -131,13 +131,13 @@ issue3.users.create!(username: "PM0",
 comment0 = Comment.create!(content: "This is comment0",
                  issue_id: issue3.id,
                  user_id: user_x.id)
-comment1 = Comment.create!(content: "This is comment0",
+comment1 = Comment.create!(content: "This is comment1",
                  issue_id: issue3.id,
                  user_id: user1.id)
-comment2 = Comment.create!(content: "This is comment0",
+comment2 = Comment.create!(content: "This is comment2",
                  issue_id: issue2.id,
                  user_id: user_x.id)
-comment3 = Comment.create!(content: "This is comment0",
+comment3 = Comment.create!(content: "This is comment3",
                  issue_id: issue2.id,
                  user_id: user2.id)
 

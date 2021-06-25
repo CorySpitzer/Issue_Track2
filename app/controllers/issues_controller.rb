@@ -2,14 +2,24 @@ class IssuesController < ApplicationController
   def index
     @issues = Issue.all
     # @issue = Issue.find(params[:id])
-    @comment_content = []
-    @issues.each do |issue|
-      issue.comments.each do |comment|
-        if comment.content != nil
-          @comment_content << comment.content
-        end
-      end
-    end
+    # @comment_content = {}
+    # @issues.each do |issue|
+    #   issue.comments.each do |comment|
+    #     if comment.content != nil
+
+    #       # @comment_content[issue.id] = comment.content
+    #     end
+    #   end
+    # end
+    # @comments
+    # @comment_content = []
+    # @issues.each do |issue|
+    #   issue.comments.each do |comment|
+    #     if comment.content != nil
+    #       @comment_content << comment.content
+    #     end
+    #   end
+    # end
   end
 
   def show

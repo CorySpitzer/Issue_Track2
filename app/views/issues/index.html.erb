@@ -13,21 +13,16 @@
                     <% else %>
                         <span class="green"><%= issue.status  %></span></h3>
                     <% end %>
-                    
-                    <h4> Comments: </h4>
-                    <% if @comment_content == nil %>
-                        <% @comment_content = ["There are no comments"] %>
-                    <% end %>
                     <ul>
-                        <% @comment_content.each do |comment| %>
-                            <li>
+                        <li>
+                            <% issue.comments.each do |comment| %>
                                 <div class="card">
                                     <div class="card-body">
-                                        <%= comment %>
+                                        <%= comment.content %>
                                     </div>
                                 </div>
-                            </li>
-                        <% end %>
+                            <% end %>
+                        </li>
                     </ul>
                 </div>
             </div>
