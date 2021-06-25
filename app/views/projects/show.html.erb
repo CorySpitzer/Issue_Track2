@@ -42,8 +42,9 @@
                     <p><%= form.text_area :summary, size: "15x3" %></p>
                     <h5>Description: </h5>
                     <p><%= form.text_area :description, size: "30x5" %></p>
+
                     <h5>Status: </h5>
-                    <p><%= form.text_area :status, size: "10x2" %></p>
+                    <p><%= form.select :status, ["Incomplete", "Complete"] %></p>  
                     <%= form.submit %>
                 <% end %>
             </div>
