@@ -3,6 +3,14 @@
         <li><%= link_to "Home", "/" %></li>
         <li><%= link_to "Issues", "/issues" %></li>
         <li><%= link_to "Projects", "/projects" %></li>
+        <% #we need these nested if's because @user and role could be nil %>
+        <% if @user %>
+            <% if @user.role %>
+                <% if @user.role.downcase == "project_manager" %>
+                    <li><%= link_to "Users", "/users" %></li>
+                <% end %>
+            <% end %>
+        <% end %>
         <li><%= link_to "About", "/about" %></li>
         <% if user_signed_in? %> 
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete  %></li>
