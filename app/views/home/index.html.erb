@@ -28,10 +28,13 @@
                             <% Project.all.each do |project| %>
                                 <li>
                                     <p>* <%= link_to project.title, project_path(project) %>
-                                    <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
-                                    <%= link_to 'Delete', project_path(project),  
-                                        :class => "btn btn-danger",
-                                        method: :delete, data: { confirm: "Are you sure?" } %> </p>
+                                    <%# only show delete buttons to the project manager %>
+                                    <% if  @user.role.downcase == "project_manager"%>
+                                        <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
+                                        <%= link_to 'Delete', project_path(project),  
+                                            :class => "btn btn-danger",
+                                            method: :delete, data: { confirm: "Are you sure?" } %> </p>
+                                    <% end %>
                                 </li>
                             <% end %>
                         </ul>
@@ -63,11 +66,13 @@
                                 <li class="card">
                                 <p> * [<%= Project.find(issue.project_id).title %>] 
                                     <%= link_to issue.summary, issue_path(issue) %>
-                                    <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
-                                    <%= link_to 'Delete', issue_path(issue),  
-                                        :class => "btn btn-danger",
-                                        method: :delete, data: { confirm: "Are you sure?" }  %> 
-
+                                    <%# only show delete buttons to the project manager %>
+                                    <% if  @user.role.downcase == "project_manager"%>
+                                        <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
+                                        <%= link_to 'Delete', issue_path(issue),  
+                                            :class => "btn btn-danger",
+                                            method: :delete, data: { confirm: "Are you sure?" }  %> 
+                                    <% end %>
                                 </p>
                                 </li>
                             <% end %>
