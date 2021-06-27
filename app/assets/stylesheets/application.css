@@ -66,3 +66,19 @@ nav {
 .green {
     color: green;
 }
+
+body {
+    /* light grey blue */
+    background-color: rgb(85, 127, 190);
+}
+
+a {
+    /* dark red */
+    color: #4b0c0c;
+  }
+  a:visited {
+    color: rgb(0, 0, 0);
+  }
+  a:hover, a:active, a:focus {
+    color:#c33;
+  }
