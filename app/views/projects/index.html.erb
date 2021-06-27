@@ -13,7 +13,7 @@
                              <ul>
                                 <h4>Issues:</h4>
                                 <% project.issues.each do |issue| %>
-                                    <li> <%= issue.summary %>
+                                    <li> <%=  link_to issue.summary, issue_path(issue) %>
                                     </li>
                                 <% end %>
                             </ul>
