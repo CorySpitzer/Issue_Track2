@@ -26,11 +26,12 @@
             <%= form_with model: @comment, :url => comments_url do |form| %>
                 <p><%= form.label :New_comment %></p>
 
-                <h5>User id: </h5>
-                <p><%= form.text_area :user_id, size: "10x2" %></p>
+                <% users = [] %>
+                <% User.all.each do |user| %>
+                    <% users << user.username%>
+                <% end %>
+                <p><%= form.select :username, users %></p>  
 
-                <h5>Issue id: </h5>
-                <p><%= form.text_area :issue_id, size: "10x2" %></p>
 
                 <h5>Content: </h5>
                 <p><%= form.text_area :content, size: "20x3" %></p>

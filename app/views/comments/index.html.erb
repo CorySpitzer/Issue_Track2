@@ -7,9 +7,12 @@
     <ul>
         <% @comments.each do |comment| %>
             <li>
-                <h3><%= link_to comment.content, {controller: "issues", 
+                <h3><%= link_to comment.content, 
+                        params.permit(:param_1, :param_2)
+                        .merge({issue_id: params[:id]}),
+                                                  controller: "issues", 
                                                   action: "show",
-                                                  id: comment.issue_id} %></h3>
+                                                  id: comment.issue_id %></h3>
             </li>
         <% end %>
     </ul>

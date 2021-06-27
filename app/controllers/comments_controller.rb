@@ -7,10 +7,14 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
+  
   def create
-    Comment.create!(issue_id: params[:issue_id], 
-                    user_id: params[:user_id],
+    # params.permit(:id)
+    # p "params", params
+    Comment.create!(issue_id: params[:id], 
+                    user_id: User.find_by_username(params[:username]).id,
                     content: params[:content])
+      a          
     redirect_back(fallback_location: comments_path)
   end
 end
