@@ -1,12 +1,15 @@
 <%= render "shared/menu" %>
-<%= render "shared/status", :user => @user %>
+<%#= render "shared/status", :user => @user %>
 
-<h1> a User </h1>
+<h1 class="centered"> User </h1>
 
-<ul>
-    <li>
+<div class="container">
+    <div class="card">
         <h2> Username: <%= @user.username  %> </h2>
         <h3> Role: <%= @user.role  %> </h3>
+    </div>
+
+    <div class="card">
         <h4> Comments: </h4>
         <ul>
             <% @user.comments.each do |comment| %>
@@ -28,6 +31,5 @@
                 </li>
             <% end %>
         </ul>
-
-    </li>
-</ul>
+    </div>
+</div>
