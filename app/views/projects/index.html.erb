@@ -5,7 +5,7 @@
 
         <% @projects.each do |project| %>
             <ul>
-                <div class="card">
+                <div class="card centered-div">
                     <div class="card-body centered">
                         <li>
                             <h3><%= link_to project.summary, project_path(project) %></h3>
@@ -24,10 +24,10 @@
             </ul>
         <% end %>
         <p></p>
-        <p> <%= link_to 'New Project', new_project_path, :class => "btn btn-light" %> |</p>
-        <p> <%= link_to 'All Projects Report', all_projects_index_path, :class => "btn btn-light" %> |</p>
-        <h1>Projects#index</h1>
-        <p>Find me in app/views/projects/index.html.erb</p>
+        <p class="centered"> <%= link_to 'New Project', new_project_path, :class => "btn btn-light" %> </p>
+        <p class="centered"> <%= link_to 'All Projects Report', all_projects_index_path, :class => "btn btn-light" %> </p>
+        <p class="centered">Projects#index</p>
+        <p class="centered">Find me in app/views/projects/index.html.erb</p>
 
     </ul>
 </body>
