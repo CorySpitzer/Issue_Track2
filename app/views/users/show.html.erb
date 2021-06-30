@@ -16,6 +16,7 @@
                 <li>
                     <p>
                         <%= comment.content %>
+                        <%#= link_to comment.content, issue_path(comment.issue_id) %>
                     </p>
                 </li>
             <% end %>
@@ -26,7 +27,7 @@
             <% @user.issues.each do |issue| %>
                 <li>
                     <p>  
-                        <%= issue.summary %>
+                        <%= link_to issue.summary, issue_path(issue)%>
                     </p>
                 </li>
             <% end %>

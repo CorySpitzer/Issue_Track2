@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "/comments/:id", to: "comments#show"
   get "/project_reports", to: "project_reports#index"
 
-  resources :projects, :issues, :users
+  resources :projects, :issues, :users, :comments
   post "projects/new", to: "projects#create"
   # "creates seven different routes in your application"
   # https://guides.rubyonrails.org/routing.html
