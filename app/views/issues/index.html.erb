@@ -1,36 +1,44 @@
-<%= render "shared/menu" %>
+<!DOCTYPE html>
+<html>
+    <head> 
+    </head>
+    <body>
 
-<ul>
-    <% @issues.each do |issue| %>
-        <li>
-            <div class="card">
-                <div class="card-body">
-                    <h2> Summary: <%= link_to issue.summary, issue_path(issue)  %> </h2>
-                    <p> Description: <%= issue.description  %> </p>
-                    <h3> Status: 
-                    <% if issue.status.downcase == "unresolved" %>
-                        <span class="red"><%= issue.status  %></span></h3>
-                    <% else %>
-                        <span class="green"><%= issue.status  %></span></h3>
-                    <% end %>
-                    <ul>
-                        <li>
-                            <% issue.comments.each do |comment| %>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <%= comment.content %>
-                                    </div>
-                                </div>
+        <%= render "shared/menu" %>
+
+        <ul>
+            <% @issues.each do |issue| %>
+                <li>
+                    <div class="card">
+                        <div class="card-body">
+                            <h2> Summary: <%= link_to issue.summary, issue_path(issue)  %> </h2>
+                            <p> Description: <%= issue.description  %> </p>
+                            <h3> Status: 
+                            <% if issue.status.downcase == "unresolved" %>
+                                <span class="red"><%= issue.status  %></span></h3>
+                            <% else %>
+                                <span class="green"><%= issue.status  %></span></h3>
                             <% end %>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-    <% end %>
-</ul>
+                            <ul>
+                                <li>
+                                    <% issue.comments.each do |comment| %>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <%= comment.content %>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
 
-<div class="centered">
-    <p>Issues#index</p>
-    <p>Find me in app/views/issues/index.html.erb</p>
-</div>
+        <div class="centered">
+            <p>Issues#index</p>
+            <p>Find me in app/views/issues/index.html.erb</p>
+        </div>
+    </body>
+</html>

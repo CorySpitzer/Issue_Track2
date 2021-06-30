@@ -1,36 +1,44 @@
-<%= render "shared/menu" %>
-<%#= render "shared/status", :user => @user %>
+<!DOCTYPE html>
+<html>
+    <head> 
+    </head>
+    <body>
 
-<h1 class="centered"> User </h1>
+        <%= render "shared/menu" %>
+        <%#= render "shared/status", :user => @user %>
 
-<div class="container">
-    <div class="card">
-        <h2> Username: <%= @user.username  %> </h2>
-        <h3> Role: <%= @user.role  %> </h3>
-    </div>
+        <h1 class="centered"> User </h1>
 
-    <div class="card">
-        <h4> Comments: </h4>
-        <ul>
-            <% @user.comments.each do |comment| %>
-                <li>
-                    <p>
-                        <%= comment.content %>
-                        <%#= link_to comment.content, issue_path(comment.issue_id) %>
-                    </p>
-                </li>
-            <% end %>
-        </ul>
+        <div class="container">
+            <div class="card">
+                <h2> Username: <%= @user.username  %> </h2>
+                <h3> Role: <%= @user.role  %> </h3>
+            </div>
 
-        <h4> Issues: </h4>
-        <ul>
-            <% @user.issues.each do |issue| %>
-                <li>
-                    <p>  
-                        <%= link_to issue.summary, issue_path(issue)%>
-                    </p>
-                </li>
-            <% end %>
-        </ul>
-    </div>
-</div>
+            <div class="card">
+                <h4> Comments: </h4>
+                <ul>
+                    <% @user.comments.each do |comment| %>
+                        <li>
+                            <p>
+                                <%= comment.content %>
+                                <%#= link_to comment.content, issue_path(comment.issue_id) %>
+                            </p>
+                        </li>
+                    <% end %>
+                </ul>
+
+                <h4> Issues: </h4>
+                <ul>
+                    <% @user.issues.each do |issue| %>
+                        <li>
+                            <p>  
+                                <%= link_to issue.summary, issue_path(issue)%>
+                            </p>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
