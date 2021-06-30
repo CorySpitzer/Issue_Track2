@@ -28,6 +28,11 @@ nav {
     text-align: center;
  }
 
+ .centered-div {
+     margin: auto;
+     width: 50%;
+ }
+
  .underlined {
      text-decoration: underline;
  }

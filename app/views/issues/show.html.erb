@@ -16,12 +16,14 @@
             <ul>
             <% @issue.comments.each do |comment|%>
                 <li>
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="bold"> 
-                                <%= User.find(comment.user_id).username %>:
-                                <p><%= comment.content %></p>
-                            </p>
+                    <div class="centered-div">
+                        <div class="card centered-div">
+                            <div class="card-body">
+                                <p class="bold"> 
+                                    <%= User.find(comment.user_id).username %>:
+                                    <p><%= comment.content %></p>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </li>
