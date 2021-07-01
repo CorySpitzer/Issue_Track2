@@ -71,17 +71,17 @@ issue3 = Issue.create!(summary: "issue summary3",
 # commenting this out/changing to user_x from user0 fixes: 
 # ActiveRecord::RecordInvalid: Validation failed: Email can't be blank, Password can't be blank
 user_x = issue2.users.create!(username: "username0", 
-                             role: "user",
+                             role: "end_user",
                              email: "a@a.com",
                              password: "GoHome1",
                              password_confirmation: "GoHome1")
 user1 = issue2.users.create!(username: "username1", 
-                             role: "user",
+                             role: "end_user",
                              email: "b@b.com",
                              password: "GoHome2",
                              password_confirmation: "GoHome2")
 user2 = issue2.users.create!(username: "username2", 
-                             role: "user",
+                             role: "end_user",
                              email: "c@c.com",
                              password: "GoHome3",
                              password_confirmation: "GoHome3")
@@ -103,13 +103,13 @@ project_manager0 = issue2.users.create!(username: "PM0",
                                         password_confirmation: "GoHome5")
 
 issue3.users.create!(username: "username1", 
-                     role: "user",
+                     role: "end_user",
                      email: "f@f.com",
                      password: "GoHome6",
                      password_confirmation: "GoHome6")
 
 issue3.users.create!(username: "username2",
-                     role: "user",
+                     role: "end_user",
                      email: "g@g.com",
                      password: "GoHome7",
                      password_confirmation: "GoHome7")

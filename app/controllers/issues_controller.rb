@@ -1,4 +1,11 @@
 class IssuesController < ApplicationController
+  load_and_authorize_resource :issue
+
+  # https://github.com/ryanb/cancan/issues/835#issuecomment-18663815
+  def issue_params
+    params.require(:issue).permit(:summary, :description, :status)
+  end
+
   def index
     @issues = Issue.all
     # @issue = Issue.find(params[:id])

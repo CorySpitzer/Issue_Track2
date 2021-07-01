@@ -1,4 +1,11 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource :project
+
+  # https://github.com/ryanb/cancan/issues/835#issuecomment-18663815
+  def project_params
+    params.require(:project).permit(:summary, :description, :title)
+  end
+
   def index
     @projects = Project.all
   end
@@ -25,10 +32,17 @@ class ProjectsController < ApplicationController
   end
 
   def create 
-    project = Project.create!(title: params[:title],
-    summary: params[:summary], 
-    description: params[:description],
-    status: params[:status])
+    project = Project.create!(title: params[:project][:title],
+    summary: params[:project][:summary], 
+    description: params[:project][:description],
+    status: params[:project][:status])
     redirect_to projects_path(project)
   end
+  # def create 
+  #   project = Project.create!(title: params[:title],
+  #   summary: params[:summary], 
+  #   description: params[:description],
+  #   status: params[:status])
+  #   redirect_to projects_path(project)
+  # end
 end
