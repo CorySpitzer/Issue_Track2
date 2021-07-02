@@ -90,9 +90,9 @@ a {
     color:#c33;
   }
 
-/* #user-info {
-    text-align: right;
-} */
+#user-info {
+    padding: 1%;
+}
 
 #menu > li:last-child {
     float: right;

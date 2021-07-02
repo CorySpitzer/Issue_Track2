@@ -17,7 +17,12 @@
         <li><%= link_to "About", "/about" %></li>
         <% if user_signed_in? %> 
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete  %></li>
-            <li id="user-info"> Username: Role: </li>
+            <li id="user-info"> 
+                <% if @user %>
+                    <div>Username: <%= @user.username%> </div>
+                    <div>Role: <%= @user.role %>  </div>
+                <% end %>
+            </li>
         <% else %>
             <li><%= link_to "Register", new_user_registration_path %></li>
             <li><%= link_to "Sign in", new_user_session_path %></li>
