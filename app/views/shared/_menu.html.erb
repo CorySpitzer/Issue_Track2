@@ -6,9 +6,9 @@
 
         <% #we need these nested if's because @user and role could be nil %>
         <% #only the project manager should see the list of users %>
-        <% if @user %>
-            <% if @user.role %>
-                <% if @user.role.downcase == "project_manager" %>
+        <% if current_user %>
+            <% if current_user.role %>
+                <% if current_user.role.downcase == "project_manager" %>
                     <li><%= link_to "Users", "/users" %></li>
                 <% end %>
             <% end %>
