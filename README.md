@@ -2,7 +2,7 @@
 A basic issue tracker
 
 ## Installation Instructions
-These installation instructions worked on Ubuntu 20.04 on WSL and should work on any Ubuntu 20.04 installtion.
+These installation instructions worked on Ubuntu 20.04 on WSL and should work on any Ubuntu 20.04 installation.
 ### Run the following commands:
 1. `sudo apt install ruby-full`
  - Verify with: `ruby -v`
@@ -20,26 +20,16 @@ These installation instructions worked on Ubuntu 20.04 on WSL and should work on
 - Verify with: `sqlite3 --version`
 8. you may need to run `rails webpacker:install`
 9. run the server with `bin/rails server`
+## Running Instructions (assumeing you're running a UNIX-like terminal)
+1. Navigate to the project folder
+2. Run `rails server` or the shorthand `rails s`
+3. Run `rails db:reset` to start a fresh database and seed it. (There's no need to start the server as sqlite3 is serverless)
+4. Navigate your browser to http://localhost:3000/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: ruby 2.7.0p0 (2019-12-25 revision 647ee6f091)[x86_64-linux-gnu]
 
-Things you may want to cover:
+* Rails version: Rails 6.1.3.2
 
-* Ruby version
+* System dependencies: Ruby, Ruby-on-Rails, and all its dependencies  
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* How to run the test suite: Comming soon!
