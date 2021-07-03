@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  # Authorize all actions for issue
   load_and_authorize_resource :issue
 
   # https://github.com/ryanb/cancan/issues/835#issuecomment-18663815
@@ -8,25 +9,6 @@ class IssuesController < ApplicationController
 
   def index
     @issues = Issue.all
-    # @issue = Issue.find(params[:id])
-    # @comment_content = {}
-    # @issues.each do |issue|
-    #   issue.comments.each do |comment|
-    #     if comment.content != nil
-
-    #       # @comment_content[issue.id] = comment.content
-    #     end
-    #   end
-    # end
-    # @comments
-    # @comment_content = []
-    # @issues.each do |issue|
-    #   issue.comments.each do |comment|
-    #     if comment.content != nil
-    #       @comment_content << comment.content
-    #     end
-    #   end
-    # end
   end
 
   def show
@@ -34,10 +16,11 @@ class IssuesController < ApplicationController
   end
 
   def create
+    # create issues and attach them to the project found by title
     Project.find_by_title(params[:title]).issues.create!(
-                          summary: params[:summary], 
-                          description: params[:description], 
-                          status: params[:status])
+                                          summary: params[:summary], 
+                                          description: params[:description], 
+                                          status: params[:status])
     redirect_to issues_url
   end
 

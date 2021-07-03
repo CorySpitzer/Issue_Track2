@@ -4,12 +4,15 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     
     # https://github.com/ryanb/cancan/issues/835#issuecomment-18663815
+    # This is a black box that I don't quite understand. 
+    # I got it from the link above.
     before_action do
         resource = controller_name.singularize.to_sym
         method = "#{resource}_params"
         params[resource] &&= send(method) if respond_to?(method, true)
-      end
+    end
 
+    # This permits some parametres:
     protected
         def configure_permitted_parameters
             devise_parameter_sanitizer.permit(:sign_up, keys: [:role])

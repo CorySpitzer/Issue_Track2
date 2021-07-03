@@ -6,6 +6,7 @@
     <body>
         <%= render "shared/menu" %>
         <div class="centered">
+            <%#= Show all info about an issue including comments%>
             <h3><%= @issue.summary%></h3>
             <p><%= @issue.description%><p>
             <% if @issue.status.downcase == "unresolved" %>
@@ -28,6 +29,7 @@
                 </li>
             <% end %>
 
+            <%#= Create a comment on any issue given it's id %>
             <%= form_with model: @comment, :url => comments_url do |form| %>
                 <p><%= form.label :New_comment %></p>
 

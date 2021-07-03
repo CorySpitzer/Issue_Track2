@@ -21,6 +21,7 @@ nav {
  nav li {
      display: inline;
      font-size: 30px;
+     /* Use multiple fonts in case the user doesn't have one */
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
  }
 
@@ -94,6 +95,7 @@ a {
     padding: 1%;
 }
 
+/* Put the user info on the right, but on the same line as the nav */
 #menu > li:last-child {
     float: right;
 }

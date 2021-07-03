@@ -9,6 +9,7 @@
             <h2>New Project:</h2>
             <p>Description </p> 
 
+            <%#= create a form for new projects %>
             <%= form_with model: @project do |form| %>
                 <h3>Title: </h3>
                 <p><%= form.text_area :title, size: "16x1" %></p>

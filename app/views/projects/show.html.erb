@@ -32,7 +32,8 @@
                 <%= form_with model: @issue, :url => new_issue_path do |form| %>
                     <p><%= form.label :New_Issue %></p>
                     <h5>Project Title: </h5>
-  
+                    <!-- Create a new Issue -->
+                    <!-- Create a dropdown of project titles -->
                     <% titles = [] %>
                     <% Project.all.each do |project| %>
                         <% titles << project.title%>
