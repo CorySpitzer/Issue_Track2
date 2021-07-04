@@ -21,7 +21,8 @@
                     <div class="card centered-div">
                         <div class="card-body">
                             <p class="bold"> 
-                                <%= User.find(comment.user_id).username %>:
+                                <% user = User.find(comment.user_id)%>
+                                <%= link_to user.username, user_path(user) %>:
                                 <p><%= comment.content %></p>
                             </p>
                         </div>
