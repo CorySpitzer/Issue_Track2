@@ -7,7 +7,7 @@
         <%= render "shared/menu" %>
         <div class="centered">
             <%#= Show all info about an issue including comments%>
-            <h3><%= @issue.summary%></h3>
+            <h3><%= @issue.summary%> Issue id: <%= @issue.id%> </h3>
             <p><%= @issue.description%><p>
             <% if @issue.status.downcase == "unresolved" %>
                 <h5 class="red"><%= @issue.status%></h5>
@@ -22,6 +22,7 @@
                         <div class="card-body">
                             <p class="bold"> 
                                 <% user = User.find(comment.user_id)%>
+                                <p> user id: <%= comment.user_id %> </p>
                                 <%= link_to user.username, user_path(user) %>:
                                 <p><%= comment.content %></p>
                             </p>
