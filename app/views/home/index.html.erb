@@ -85,8 +85,21 @@
 
         <% elsif user_signed_in? %>
             <h2> End user dashboard </h2>
+            <!-- display all issues associated with user -->
+            <h4> User's issues: </h4>
+            <ul>
+                <% @issues.each do |issue| %>
+                    <% issue.users.each do |user| %>
+                        <% if user == @user %>
+                            <li>
+                                <%= link_to issue.summary, issue_path(issue) %>
+                            </li>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </ul>
         <% end %>
-        <div class="centered"><p>Home#index</p>
-        <p>Find me in app/views/home/index.html.erb</p></div>
+        <div class="centered">Home#index</div>
+        <div class="centered">Find me in app/views/home/index.html.erb</div>
     </body>
 </html>
