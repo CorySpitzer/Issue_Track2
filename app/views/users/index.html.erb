@@ -13,7 +13,13 @@
                     <div class="card">
                         <div class="card-body">
                             <h2> Username: <%= link_to user.username, user_path(user)  %> </h2>
-                            <h3> Status: <%= user.role  %> </h3>
+                            <% if user.role == "project_manager"%>
+                                <h3> Status: Project Manager </h3>
+                            <% elsif  user.role == "developer"%>
+                                <h3> Status: Developer </h3>
+                            <% else #we assume user is an end user%> 
+                                <h3> Status: End User </h3>
+                            <% end %>
                         </div>
                     </div>
                 </li>
