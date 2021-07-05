@@ -21,7 +21,13 @@
                 <div class="top-right-info">
                     <% if current_user %>
                         <div>Email: <%= current_user.email%> </div>
-                        <div>Role: <%= current_user.role %>  </div>
+                        <% if current_user.role == "project_manager" %>
+                            <div>Role: Project Manager </div>
+                        <% elsif current_user.role == "developer" %>
+                            <div>Role: Developer </div>
+                        <% else #end user%>
+                            <div>Role: End User </div>
+                        <% end %>
                     <% end %>
                 </div>
             </li>
