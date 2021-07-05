@@ -99,3 +99,7 @@ a {
 #menu > li:last-child {
     float: right;
 }
+
+.top-right-info {
+    font-size: 20px;
+}
