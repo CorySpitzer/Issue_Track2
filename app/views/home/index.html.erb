@@ -65,7 +65,9 @@
                         <ul>
                             <% Issue.all.each do |issue| %>
                                 <li class="card">
-                                <p> * [<%= Project.find(issue.project_id).title %>] 
+                                <p> * [<%= link_to Project.find(issue.project_id).title, 
+                                               project_path(issue.project_id) %>] 
+                                    <span> - </span>
                                     <%= link_to issue.summary, issue_path(issue) %>
                                     <%# only show delete buttons to the project manager %>
                                     <% if  @user.role.downcase == "project_manager"%>
