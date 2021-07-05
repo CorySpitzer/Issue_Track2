@@ -29,6 +29,14 @@
                         </div>
                     <% end %>
                 </ul>
+                
+            </div>
+            <div class="col-4">
+                <h5> Status: <%= @project.status %></h5>
+                <%= button_to "Project Report", 
+                    project_reports_path(@project), 
+                    :method => :get
+                %>
                 <%= form_with model: @issue, :url => new_issue_path do |form| %>
                     <p><%= form.label :New_Issue %></p>
                     <h5>Project Title: </h5>
@@ -48,13 +56,6 @@
                     <p><%= form.text_area :status, size: "10x2" %></p>
                     <%= form.submit %>
                 <% end %>
-            </div>
-            <div class="col-4">
-                <h5> Status: <%= @project.status %></h5>
-                <%= button_to "Project Report", 
-                    project_reports_path(@project), 
-                    :method => :get
-                %>
             </div>
 
         </div>
