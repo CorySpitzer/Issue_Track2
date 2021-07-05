@@ -1,20 +1,20 @@
 <nav>
     <ul id="menu">
-        <li><%= link_to "Home", "/" %></li>
-        <li><%= link_to "Issues", "/issues" %></li>
-        <li><%= link_to "Projects", "/projects" %></li>
+        <li><%= link_to "Home", "/" %><span> • </span></li>
+        <li><%= link_to "Issues", "/issues" %><span> • </span></li>
+        <li><%= link_to "Projects", "/projects" %><span> • </span></li>
 
         <% #we need these nested if's because @user and role could be nil %>
         <% #only the project manager should see the list of users %>
         <% if current_user %>
             <% if current_user.role %>
                 <% if current_user.role.downcase == "project_manager" %>
-                    <li><%= link_to "Users", "/users" %></li>
+                    <li><%= link_to "Users", "/users" %><span> • </span></li>
                 <% end %>
             <% end %>
         <% end %>
         
-        <li><%= link_to "About", "/about" %></li>
+        <li><%= link_to "About", "/about" %><span> • </span></li>
         <% if user_signed_in? %> 
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete  %></li>
             <li id="user-info"> 
@@ -26,8 +26,8 @@
                 </div>
             </li>
         <% else %>
-            <li><%= link_to "Register", new_user_registration_path %></li>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><%= link_to "Register", new_user_registration_path %><span> • </span></li>
+            <li><%= link_to "Sign in ", new_user_session_path %></li>
             <li></li>
         <% end %>
     </ul>

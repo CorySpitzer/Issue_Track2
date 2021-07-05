@@ -75,6 +75,10 @@ nav {
     color: green;
 }
 
+.black {
+    color: #4b0c0c;
+}
+
 body {
     /* light grey blue */
     background-color: rgb(85, 127, 190);
