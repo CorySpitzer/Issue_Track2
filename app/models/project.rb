@@ -1,3 +1,4 @@
+require_relative './application_record'
 class Project < ApplicationRecord
     has_many :issues#, :dependent => :destroy 
     #this is no longer needed because we do it manually.

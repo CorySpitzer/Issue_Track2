@@ -233,6 +233,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   activesupport
   bootsnap (>= 1.4.4)
   byebug

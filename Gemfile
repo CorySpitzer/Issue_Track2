@@ -58,4 +58,5 @@ gem 'devise'
 gem 'cancancan'
 gem 'rspec'
 gem 'rspec-rails'
+gem 'activerecord'
 
