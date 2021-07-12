@@ -65,7 +65,7 @@
                         <ul>
                             <% Issue.all.each do |issue| %>
                                 <li class="card">
-                                <p> * [<%= link_to Project.find(issue.project_id).title, 
+                                <p> * [<%= Project.find(issue.project_id).title%><%#= link_to Project.find(issue.project_id).title, 
                                                project_path(issue.project_id) %>] 
                                     <span> - </span>
                                     <%= link_to issue.summary, issue_path(issue) %>

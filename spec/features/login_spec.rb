@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# TODO: DRY up some of the method calls
+
 # Put a project manager in the DB:
 User.create!(username: "PM0", 
             role: "project_manager",
