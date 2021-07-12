@@ -1,9 +1,14 @@
 require 'rails_helper'
 
-# Put a developer in the DB:
-User.create!(username: "dev0",
+# Put developers in the DB:
+user1 = User.create!(username: "dev0",
             role: "developer",
             email: "d1@d.com",
+            password: "GoHome4",
+            password_confirmation: "GoHome4")
+user2 = User.create!(username: "dev9",
+            role: "developer",
+            email: "d1@dev.com",
             password: "GoHome4",
             password_confirmation: "GoHome4")
 
@@ -41,5 +46,21 @@ RSpec.describe 'the developer dashboard', type: :feature do
         click_on 'Log in'
         click_on issue1.summary
         expect(page).to have_content issue1.status
+    end
+
+    scenario 'assign a user to an issue' do
+        # First log in the user
+        visit root_path
+        click_on 'Login'
+        fill_in 'Email', with: 'd1@d.com'
+        fill_in 'Password', with: 'GoHome4'
+        click_on 'Log in'
+        select user2.username, :from => "username"
+        select issue1.summary, :from => "summary"
+        click_on 'Save'
+        click_on 'Users'
+        click_on user2.username
+        expect(page).to have_content user2.username
+        expect(page).to have_content issue1.summary 
     end
 end
