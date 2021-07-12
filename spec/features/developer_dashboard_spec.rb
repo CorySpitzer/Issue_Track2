@@ -29,8 +29,8 @@ RSpec.describe 'the developer dashboard', type: :feature do
         # First log in the user
         visit root_path
         click_on 'Login'
-        fill_in 'Email', with: 'd1@d.com'
-        fill_in 'Password', with: 'GoHome4'
+        fill_in 'Email', with: user2.email
+        fill_in 'Password', with: user2.password
         click_on 'Log in'
         # Next, click on a project from the list
         click_on project1.title
@@ -41,8 +41,8 @@ RSpec.describe 'the developer dashboard', type: :feature do
         # First log in the user
         visit root_path
         click_on 'Login'
-        fill_in 'Email', with: 'd1@d.com'
-        fill_in 'Password', with: 'GoHome4'
+        fill_in 'Email', with: user1.email
+        fill_in 'Password', with: user1.password
         click_on 'Log in'
         click_on issue1.summary
         expect(page).to have_content issue1.status
@@ -52,8 +52,8 @@ RSpec.describe 'the developer dashboard', type: :feature do
         # First log in the user
         visit root_path
         click_on 'Login'
-        fill_in 'Email', with: 'd1@d.com'
-        fill_in 'Password', with: 'GoHome4'
+        fill_in 'Email', with: user1.email
+        fill_in 'Password', with: user1.password
         click_on 'Log in'
         select user2.username, :from => "username"
         select issue1.summary, :from => "summary"

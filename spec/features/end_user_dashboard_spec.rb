@@ -26,7 +26,7 @@ RSpec.describe 'the developer dashboard', type: :feature do
         visit root_path
         click_on 'Login'
         fill_in 'Email', with: user1.email
-        fill_in 'Password', with: 'GoHome4'
+        fill_in 'Password', with: user1.password
         click_on 'Log in'
         expect(page).to have_content issue20.summary
     end
