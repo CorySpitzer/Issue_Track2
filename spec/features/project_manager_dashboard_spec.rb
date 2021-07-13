@@ -51,4 +51,15 @@ RSpec.describe 'the project manager dashboard', type: :feature do
         click_on 'Delete issue ' + issue1.id.to_s
         expect(page).not_to have_content issue1.summary
     end
+    scenario 'click on a issue link' do
+        # First log in the user
+        visit root_path
+        click_on 'Login'
+        fill_in 'Email', with: user2.email
+        fill_in 'Password', with: user2.password
+        click_on 'Log in'
+        # Next, click on a project from the list
+        click_on issue1.summary
+        expect(page).to have_content issue1.summary + ' Issue id: ' + issue1.id.to_s
+    end
 end
