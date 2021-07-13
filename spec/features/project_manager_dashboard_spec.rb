@@ -49,6 +49,6 @@ RSpec.describe 'the project manager dashboard', type: :feature do
         click_on 'Log in'
         # Next, click on a project from the list
         click_on 'Delete issue ' + issue1.id.to_s
-        expect(page).to have_content issue1.summary
+        expect(page).not_to have_content issue1.summary
     end
 end
