@@ -31,7 +31,7 @@
                                     <%# only show delete buttons to the project manager %>
                                     <% if  @user.role.downcase == "project_manager"%>
                                         <%# https://stackoverflow.com/questions/18723155/destroy-path-not-working-in-ruby-on-rails %>
-                                        <%= link_to 'Delete', project_path(project),  
+                                        <%= link_to 'Delete id ' + project.id.to_s, project_path(project),  
                                             :class => "btn btn-danger",
                                             method: :delete, data: { confirm: "Are you sure?" } %> </p>
                                     <% end %>
