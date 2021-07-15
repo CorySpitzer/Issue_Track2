@@ -1,6 +1,6 @@
 # https://github.com/simplecov-ruby/simplecov
-require 'simplecov'
-SimpleCov.start
+# require 'simplecov'
+# SimpleCov.start
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
@@ -28,6 +28,9 @@ require 'rspec/rails'
 # uncommented because
 # https://semaphoreci.com/community/tutorials/working-effectively-with-data-factories-using-factorygirl
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+
+# https://medium.com/@lukepierotti/setting-up-rspec-and-factory-bot-3bb2153fb909
+require 'support/factory_bot'
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
