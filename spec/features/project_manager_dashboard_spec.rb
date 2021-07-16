@@ -5,12 +5,7 @@ project22 = Project.create!(title: "Proj22",
             description: "Create a good project using Rails",
             status: "complete")
 
-# Put project managers in the DB:
-user2 = User.create!(username: "PM22",
-            role: "project_manager",
-            email: "p1@d.com",
-            password: "GoHome4",
-            password_confirmation: "GoHome4")
+
 
 issue1 = Issue.create!(summary: "issue summary22",
             description: "description1",
@@ -18,7 +13,16 @@ issue1 = Issue.create!(summary: "issue summary22",
             project_id: project22.id) 
 
 RSpec.describe 'the project manager dashboard', type: :feature do 
+
     scenario 'click on a project link' do
+        # This needs to be in the scenario so it is rolled back in a transaction
+        # Put project managers in the DB:
+        user2 = User.create!(username: "PM22",
+        role: "project_manager",
+        email: "p1@d.com",
+        password: "GoHome4",
+        password_confirmation: "GoHome4")
+
         # First log in the user
         visit root_path
         click_on 'Login'

@@ -2,27 +2,6 @@ require 'rails_helper'
 
 # TODO: DRY up some of the method calls
 
-# Put a project manager in the DB:
-user1 = User.create!(username: "PM0", 
-            role: "project_manager",
-            email: "e@e.com",
-            password: "GoHome5",
-            password_confirmation: "GoHome5")
-
-# Put a developer in the DB:
-user2 = User.create!(username: "dev0",
-            role: "developer",
-            email: "d@d.com",
-            password: "GoHome4",
-            password_confirmation: "GoHome4")
-
-# Put an end user in the DB:
-user3 = User.create!(username: "username1", 
-            role: "end_user",
-            email: "f@f.com",
-            password: "GoHome6",
-            password_confirmation: "GoHome6")
-
 RSpec.describe 'Logging in users', type: :feature do 
     scenario 'invalid inputs' do 
         visit root_path
@@ -34,6 +13,13 @@ RSpec.describe 'Logging in users', type: :feature do
     end
 
     scenario 'valid inputs for a project manager' do 
+        # Put a project manager in the DB:
+        user1 = User.create!(username: "PM0", 
+                            role: "project_manager",
+                            email: "e@e.com",
+                            password: "GoHome5",
+                            password_confirmation: "GoHome5")
+
         visit root_path
         click_on 'Login'
         fill_in 'Email', with: user1.email
@@ -43,6 +29,13 @@ RSpec.describe 'Logging in users', type: :feature do
     end
 
     scenario 'valid inputs for a developer' do 
+        # Put a developer in the DB:
+        user2 = User.create!(username: "dev0",
+                            role: "developer",
+                            email: "d@d.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
+
         visit root_path
         click_on 'Login'
         fill_in 'Email', with: user2.email
@@ -52,6 +45,13 @@ RSpec.describe 'Logging in users', type: :feature do
     end
 
     scenario 'valid inputs for an end user' do 
+        # Put an end user in the DB:
+        user3 = User.create!(username: "username1", 
+                            role: "end_user",
+                            email: "f@f.com",
+                            password: "GoHome6",
+                            password_confirmation: "GoHome6")
+                            
         visit root_path
         click_on 'Login'
         fill_in 'Email', with: user3.email

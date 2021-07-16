@@ -1,16 +1,7 @@
 require 'rails_helper'
 
-# Put developers in the DB:
-user1 = User.create!(username: "dev0",
-            role: "developer",
-            email: "d1@d.com",
-            password: "GoHome4",
-            password_confirmation: "GoHome4")
-user2 = User.create!(username: "dev9",
-            role: "developer",
-            email: "d1@dev.com",
-            password: "GoHome4",
-            password_confirmation: "GoHome4")
+
+
 
 # Put a project in the DB: 
 project1 = Project.create!(title: "Proj1",
@@ -26,6 +17,12 @@ issue1 = Issue.create!(summary: "issue summary1",
 
 RSpec.describe 'the developer dashboard', type: :feature do 
     scenario 'click on a project link' do
+        user2 = User.create!(username: "dev9",
+                            role: "developer",
+                            email: "d1@dev.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
+
         # First log in the user
         visit root_path
         click_on 'Login'
@@ -38,6 +35,11 @@ RSpec.describe 'the developer dashboard', type: :feature do
     end
 
     scenario 'click on an issue link' do
+        user1 = User.create!(username: "dev0",
+                            role: "developer",
+                            email: "d1@d.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
         # First log in the user
         visit root_path
         click_on 'Login'
@@ -49,6 +51,18 @@ RSpec.describe 'the developer dashboard', type: :feature do
     end
 
     scenario 'assign a user to an issue' do
+        user1 = User.create!(username: "dev0",
+                            role: "developer",
+                            email: "d1@d.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
+
+        user2 = User.create!(username: "dev9",
+                            role: "developer",
+                            email: "d1@dev.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
+
         # First log in the user
         visit root_path
         click_on 'Login'

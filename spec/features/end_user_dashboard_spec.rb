@@ -13,15 +13,15 @@ issue20 = Issue.create!(summary: "issue summary20",
              
                            project_id: project10.id) 
 
-# Put an end user in the DB connected with the issue:
-user1 = issue20.users.create!(username: "eu0",
-            role: "end_user",
-            email: "eu@d.com",
-            password: "GoHome4",
-            password_confirmation: "GoHome4")
-
 RSpec.describe 'the developer dashboard', type: :feature do 
     scenario 'click on a project link' do
+        # Put an end user in the DB connected with the issue:
+        user1 = issue20.users.create!(username: "eu0",
+                                role: "end_user",
+                                email: "eu@d.com",
+                                password: "GoHome4",
+                                password_confirmation: "GoHome4")
+
         # First log in the user
         visit root_path
         click_on 'Login'
