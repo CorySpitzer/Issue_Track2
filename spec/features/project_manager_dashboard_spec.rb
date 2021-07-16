@@ -18,10 +18,10 @@ RSpec.describe 'the project manager dashboard', type: :feature do
         # This needs to be in the scenario so it is rolled back in a transaction
         # Put project managers in the DB:
         user2 = User.create!(username: "PM22",
-        role: "project_manager",
-        email: "p1@d.com",
-        password: "GoHome4",
-        password_confirmation: "GoHome4")
+                            role: "project_manager",
+                            email: "p1@d.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
 
         # First log in the user
         visit root_path
@@ -34,6 +34,12 @@ RSpec.describe 'the project manager dashboard', type: :feature do
         expect(page).to have_content "Project: " + project22.title
     end
     scenario 'delete a project' do
+        user2 = User.create!(username: "PM22",
+                            role: "project_manager",
+                            email: "p1@d.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
+
         # First log in the user
         visit root_path
         click_on 'Login'
@@ -45,6 +51,12 @@ RSpec.describe 'the project manager dashboard', type: :feature do
         expect(page).not_to have_content project22.title
     end
     scenario 'delete an issue' do
+        user2 = User.create!(username: "PM22",
+                            role: "project_manager",
+                            email: "p1@d.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
+
         # First log in the user
         visit root_path
         click_on 'Login'
@@ -56,6 +68,12 @@ RSpec.describe 'the project manager dashboard', type: :feature do
         expect(page).not_to have_content issue1.summary
     end
     scenario 'click on a issue link' do
+        user2 = User.create!(username: "PM22",
+                            role: "project_manager",
+                            email: "p1@d.com",
+                            password: "GoHome4",
+                            password_confirmation: "GoHome4")
+
         # First log in the user
         visit root_path
         click_on 'Login'

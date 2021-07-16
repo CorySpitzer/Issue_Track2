@@ -32,6 +32,6 @@ These installation instructions worked on Ubuntu 20.04 on WSL and should work on
 
 * System dependencies: Ruby, Ruby-on-Rails, and all its dependencies  
 ## How to run the test suite:
-1. run `rake db:test:prepare` to clean out the testing database for testing
+1. run `rails db:test:prepare` to clean out the testing database for testing
 2. run `rspec` to run the test
 

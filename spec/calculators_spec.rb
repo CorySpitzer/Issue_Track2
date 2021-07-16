@@ -18,11 +18,11 @@ issue = Issue.create!(summary: "issue summary3",
               status: "Resolved",
               project_id: project.id) 
 
-# user = issue.users.create!(username: "dev1",
-#               role: "developer",
-#               email: "9@cory.com",
-#               password: "GoHome8",
-#               password_confirmation: "GoHome8")
+user = issue.users.create!(username: "dev1",
+              role: "developer",
+              email: "9@cory.com",
+              password: "GoHome8",
+              password_confirmation: "GoHome8")
 
 comment0 = Comment.create!(content: "This is comment0",
               issue_id: issue.id,
@@ -41,6 +41,8 @@ describe ProjectStatistics do
     end
 
     it 'counts comments for a given project' do 
+
+
         expect(proj_stats.comments_per_project).to equal 2
     end
 end
