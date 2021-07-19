@@ -32,7 +32,11 @@
                 
             </div>
             <div class="col-4">
-                <h5> Status: <%= @project.status %></h5>
+                <% if @project.status.downcase == "complete" %>
+                    <span class="green"><%= @project.status  %></span>
+                <% else %>
+                    <span class="red"><%= @project.status  %></span>
+                <% end %>
                 <%= button_to "Project Report", 
                     project_reports_path(@project), 
                     :method => :get
