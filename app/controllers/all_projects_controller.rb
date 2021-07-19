@@ -13,9 +13,9 @@ class AllProjectsController < ApplicationController
         end
       end
     end
-    @mean_issues_per_project = issue_count.to_f / @projects_count
+    @mean_issues_per_project = (issue_count.to_f / @projects_count).round 2
 
-    @proportion_of_resolved_issues_per_proj = resolved_issues.to_f / @projects_count
+    @proportion_of_resolved_issues_per_proj = (resolved_issues.to_f / @projects_count).round 2
     
     # How many of each user type will we have? start at zero
     pm_count = 0
@@ -30,8 +30,8 @@ class AllProjectsController < ApplicationController
         end_user_count += 1
       end
     end
-    @end_users_per_project = end_user_count.to_f / @projects_count
-    @developers_per_project = dev_count.to_f / @projects_count
-    @pms_per_project = pm_count.to_f / @projects_count
+    @end_users_per_project = (end_user_count.to_f / @projects_count).round 2
+    @developers_per_project = (dev_count.to_f / @projects_count).round 2
+    @pms_per_project = (pm_count.to_f / @projects_count).round 2
   end
 end
