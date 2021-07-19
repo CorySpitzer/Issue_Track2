@@ -5,6 +5,12 @@
 
     <body>
         <%= render "shared/menu" %>
+            <% if can? :manage, :all %>
+                <br>
+                <br>
+                <p class="centered"> <%= link_to 'New Project', new_project_path, :class => "btn btn-success" %> </p>
+                <p class="centered"> <%= link_to 'All Projects Report', all_projects_index_path, :class => "btn btn-warning" %> </p>
+            <% end %>
             <h2 class="centered"> All Projects: </h2>
             <p class="centered"> -------------- </p>
             <% @projects.each do |project| %>
@@ -29,10 +35,6 @@
                 </ul>
             <% end %>
             <p></p>
-            <% if can? :manage, :all %>
-                <p class="centered"> <%= link_to 'New Project', new_project_path, :class => "btn btn-light" %> </p>
-                <p class="centered"> <%= link_to 'All Projects Report', all_projects_index_path, :class => "btn btn-light" %> </p>
-            <% end %>
             <p class="centered">Projects#index</p>
             <p class="centered">Find me in app/views/projects/index.html.erb</p>
 
