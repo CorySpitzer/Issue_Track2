@@ -15,15 +15,19 @@
                             <li><div class="card-body">
 
                                 <p><%= issue.summary %> - 
-                                <% if issue.status.downcase == "unresolved" %>
-                                    <span class="red"><%= issue.status  %></span>
-                                <% else %>
-                                    <span class="green"><%= issue.status  %></span>
-                                <% end %>
+                                <% if issue.status %>
+                                    <% if issue.status.downcase == "unresolved" %>
+                                        <span class="red"><%= issue.status  %></span>
+                                    <% else %>
+                                        <span class="green"><%= issue.status  %></span>
+                                    <% end %>
 
-                                <% issue.comments.each do |comment| %>
-                                    <p><div class="bold">Username: <%= User.find(comment.user_id).username %>:</div> 
-                                    <%= comment.content %></p>
+                                    <% issue.comments.each do |comment| %>
+                                        <p><div class="bold">Username: <%= User.find(comment.user_id).username %>:</div> 
+                                        <%= comment.content %></p>
+                                    <% end %>
+                                <% else %>
+                                     <span class="orange">Warning: No Issue Status</span>
                                 <% end %>
                             </div></li>
                         </div>
@@ -32,15 +36,20 @@
                 
             </div>
             <div class="col-4">
-                <% if @project.status.downcase == "complete" %>
-                    <span class="green"><%= @project.status  %></span>
+                <% if @project.status %>
+                    <% if @project.status.downcase == "complete" %>
+                        <span class="green"><%= @project.status  %></span>
+                    <% else %>
+                        <span class="red"><%= @project.status  %></span>
+                    <% end %>
                 <% else %>
-                    <span class="red"><%= @project.status  %></span>
+                    <span class="orange">Warning: No project status</span>
                 <% end %>
-                <%= button_to "Project Report", 
+
+                <p><%= button_to "Project Report", 
                     project_reports_path(@project), 
                     :method => :get
-                %>
+                %></p>
                 <%= form_with model: @issue, :url => new_issue_path do |form| %>
                     <p><%= form.label :New_Issue %></p>
                     <h5>Project Title: </h5>
