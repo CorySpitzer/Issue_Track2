@@ -33,11 +33,11 @@ class ProjectStatistics
     end
 
     def mean_comments_per_issue
-        comments_per_project.to_f / @project_issues_count
+        (comments_per_project.to_f / @project_issues_count).round 2
     end
 
     def percentage_of_resolved_issues
-        100 * count_resolved_issues.to_f / @project_issues_count
+        (100 * count_resolved_issues.to_f / @project_issues_count).round 2
     end
 
 end
