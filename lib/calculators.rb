@@ -36,6 +36,10 @@ class ProjectStatistics
         if @project_issues_count == 0
             return 0
         else
+            # p
+            # p "@project_issues_count"
+            # p @project_issues_count
+            # p
             (comments_per_project.to_f / @project_issues_count).round 2
         end
     end

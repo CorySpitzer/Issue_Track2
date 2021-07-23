@@ -20,6 +20,19 @@
                             <% else #we assume user is an end user%> 
                                 <h3> Status: End User </h3>
                             <% end %>
+
+                            <% if !user.issues.empty?%>
+                                <h4> Issues: </h4>
+                            <% end %>
+                            <% user.issues.each do |issue|%>
+                                <%= issue.summary %>
+                                <% if issue.status.downcase == "resolved"%>
+                                    <p class="green"><%= issue.status %></p>
+                                <% else %>
+                                    <p class="red"><%= issue.status %></p>
+                                <% end %>
+                            <% end %>
+
                         </div>
                     </div>
                 </li>
