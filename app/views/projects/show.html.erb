@@ -14,7 +14,7 @@
                         <div class="card">
                             <li><div class="card-body">
 
-                                <p><%= issue.summary %> - 
+                                <p><%= link_to issue.summary, issue_path(issue) %> - 
                                 <% if issue.status %>
                                     <% if issue.status.downcase == "unresolved" %>
                                         <span class="red"><%= issue.status  %></span>
