@@ -17,8 +17,18 @@
                 <p><%= form.text_area :summary, size: "20x2" %></p>
                 <h3>Description:  </h3>
                 <p><%= form.text_area :description, size: "25x5" %></p>
-                <h3>Status (complete or incomplete): </h3>
-                <p><%= form.text_area :status, size: "16x1" %></p>
+
+                 <!–– <h3>Status (complete or incomplete): </h3> -->
+                 <p><%#= form.text_area :status, size: "16x1" %></p>
+
+                <h3>Status: </h3>
+                <% form.label "Status" %>
+                <% statuses = ['complete', 'incomplete'] %>
+                <p><%= form.select(:status_type, 
+                    options_for_select([['complete', 'complete'],
+                                        ['incomplete', 'incomplete']])) %></p>
+                <p><%#= form.select :status, statuses %></p>
+
                 <p><%= form.submit "Submit" %></p>
             <% end %>
 
