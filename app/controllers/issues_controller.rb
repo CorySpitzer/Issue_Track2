@@ -2,8 +2,6 @@ class IssuesController < ApplicationController
   # Authorize all actions for issue
   load_and_authorize_resource :issue
 
-
-
   def index
     @issues = Issue.all
   end
@@ -13,13 +11,19 @@ class IssuesController < ApplicationController
   end
 
   # https://github.com/ryanb/cancan/issues/835#issuecomment-18663815
-  def issue_params
-    params.require(:issue).permit(:summary, :description, :status)
-  end
+  # def issue_params
+  #   params.require(:issue).permit(:summary, :description, :status)
+  # end
 
   def create
     # create issues and attach them to the project found by title
-    Project.find_by_title(params[:title]).issues.create!(issue_params)
+    # Project.find_by_title(params{issue: {summary: "text", status: "text", description: "text"}}
+    Project.find_by_title(params[:title]).issues.create!(
+      summary: params[:summary], 
+      description: params[:description],
+      status: params[:status])
+
+    # Project.find_by_title(params[:title]).issues.create!(issue_params)
     # Project.find_by_title(params[:title]).issues.create!(
     #                                       summary: params[:summary], 
     #                                       description: params[:description], 

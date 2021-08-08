@@ -50,7 +50,7 @@
                     project_reports_path(@project), 
                     :method => :get
                 %></p>
-                <%= form_with model: @issue, :url => new_issue_path do |form| %>
+                <%= form_with model: @issue, :url => issues_path do |form| %>
                     <p><%= form.label :New_Issue %></p>
                     <h5>Project Title: </h5>
                     <!-- Create a new Issue -->
